@@ -1,0 +1,260 @@
+@import color
+
+.footer__social
+    display: flex
+    flex-direction: row
+    .icon
+        margin-right: 20px
+
+.footer__phone
+    width: 156px
+    a
+        font-size: 1em
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
+        .icon
+            margin: 0 8px 0 0
+
+.icons
+    display: flex
+    flex-direction: row
+    div
+        margin: 5px
+
+.icon
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: 50% 50%
+    cursor: pointer
+
+.icon__phone
+    width: 13px
+    height: 13px
+    background-image: url("/images/ui/icons/phone.svg")
+
+.icon__facebook
+    width: 40px
+    height: 40px
+    background-image: url("/images/ui/icons/facebook.svg")
+
+.icon__instagram
+    width: 40px
+    height: 40px
+    background-image: url("/images/ui/icons/instagram.svg")
+
+.icon__check
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/check.svg")
+
+.icon__close
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/close.svg")
+
+.icon__close-red
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/close-red.svg")
+
+.icon__clock
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/clock.svg")
+
+.icon__arrow
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/arrow.svg")
+
+.icon__calendar
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/calendar.svg")
+
+.icon__trash
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/trash.svg")
+
+.icon__gear
+    width: 20px
+    height: 20px
+    background-image: url("/images/ui/icons/gear.svg")
+
+.topnav
+    display: flex
+    padding: 0
+    margin: 0
+    flex-direction: row
+    flex-wrap: nowrap
+    text-transform: uppercase
+    font-family: URW Geometric Extended
+    font-weight: 700
+    li
+        list-style-type: none
+        padding: 15px
+        a
+            text-decoration: none
+            transition: .3s
+            &:hover
+                text-decoration: underline
+                text-underline-offset: 5px
+                color: $red
+
+button
+    padding: 15px 58px
+    text-transform: lowercase
+    cursor: pointer
+    font-weight: 900
+    background-color: $red
+    border: none
+    border-radius: 5px
+    color: $white
+    box-shadow: 0 7px 20px $buttonShadow
+    margin: 5px
+
+.button__light
+    box-shadow: none
+    background-color: $white
+    border: 2px solid $red
+    color: $red
+    padding: 13px 56px
+    position: relative
+    &::after
+        transition: .3s
+        content: ""
+        min-width: calc(100% - 112px)
+        min-height: 2px
+        background-color: $red
+        display: block
+        position: absolute
+        opacity: 0
+    &:hover
+        &::after
+            opacity: 1
+// forms
+
+label
+    display: flex
+    flex-direction: column
+    width: 285px
+    margin: 5px
+    input, select
+        box-sizing: border-box
+        width: 100%
+        padding: 12px 11px
+        background-color: $formBg
+        border: none
+        outline: none
+        border-radius: 5px
+        display: block
+        margin: 3px 0 0 -2px
+        color: $formText
+    select::-ms-expand
+        display: none
+    .input__date
+        appearance: none
+    .calendar, select
+        appearance: none
+        background-image: url('/images/ui/icons/calendar.svg')
+        background-repeat: no-repeat
+        background-position: 95% 50%
+    select
+        background-image: url('/images/ui/icons/arrow.svg')
+    .timepicker
+        background-image: url('/images/ui/icons/clock.svg')
+        background-repeat: no-repeat
+        background-position: 95% 50%
+
+.react-datepicker
+    color: $black!important
+    font-family: Jost!important
+    width: 100%
+    border: none!important
+    border-radius: 5px
+    display: flex
+    justify-content: center
+ul.react-datepicker__time-list 
+    overflow: hidden!important
+    height: auto!important
+    padding: 0!important
+li.react-datepicker__time-list-item--disabled
+    display: none!important
+.react-datepicker__time-container
+    width: 100%!important
+.react-datepicker__time-list-item--selected
+    background: transparent!important
+    color: $red!important
+.react-datepicker-popper[data-placement^="bottom"], .react-datepicker-popper[data-placement^="bottom-end"],.react-datepicker-popper[data-placement^="top"], .react-datepicker-popper[data-placement^="top-end"]
+    margin: 0!important
+.react-datepicker__triangle
+    display: none
+.react-datepicker-popper
+    color: $black!important
+    width: 285px!important
+    box-shadow: 0 0 20px 0 #b5b3b346!important
+    border: none!important
+    outline: none!important
+.react-datepicker__day--selected
+    background: transparent!important
+    color: $red!important
+.react-datepicker__day-name
+    color: $black!important
+    font-weight: 700!important
+.react-datepicker__day--weekend
+    color: $black!important
+    font-weight: 700!important
+.react-datepicker__header
+    color: $black!important
+    background: $white!important
+    border: none!important
+.react-datepicker__navigation
+    color: $black!important
+    border: none!important
+    box-shadow: none!important
+    width: 17px!important
+    height: 17px!important
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        transform: rotate(90deg)
+        width: 100%
+        height: 100%
+        margin: 0 auto
+        z-index: 2
+        background-image: url(/images/ui/icons/arrow.svg) !important
+        background-position: 0
+        background-size: contain
+        background-repeat: no-repeat
+        color: $black!important
+.react-datepicker__navigation--previous
+    left: 40px
+.react-datepicker__navigation--next
+    right: 40px
+    &::before
+        transform: rotate(-90deg)
+.react-datepicker__month-container
+    float: none!important
+
+.react-datepicker__current-month
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 35px
+    color: $black!important
+    text-transform: capitalize
+.react-datepicker__day--keyboard-selected
+    background-color: transparent!important
+    color: $red!important
+
+.react-datepicker__day--outside-month
+    opacity: 0!important
+
+.timepicker-popper
+    width: 100px!important
+    text-align: center

@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'URW Geometric Extended Black Oblique';
+    src: url('URWGeometricExt-BlackOblique.eot');
+    src: local('URW Geometric Extended Black Oblique'), local('URWGeometricExt-BlackOblique'),
+        url('URWGeometricExt-BlackOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-BlackOblique.woff2') format('woff2'),
+        url('URWGeometricExt-BlackOblique.woff') format('woff'),
+        url('URWGeometricExt-BlackOblique.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Heavy Oblique';
+    src: url('URWGeometricExt-HeavyOblique.eot');
+    src: local('URW Geometric Extended Heavy Oblique'), local('URWGeometricExt-HeavyOblique'),
+        url('URWGeometricExt-HeavyOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-HeavyOblique.woff2') format('woff2'),
+        url('URWGeometricExt-HeavyOblique.woff') format('woff'),
+        url('URWGeometricExt-HeavyOblique.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Extra';
+    src: url('URWGeometricExt-ExtraBold.eot');
+    src: local('URW Geometric Extended Extra Bold'), local('URWGeometricExt-ExtraBold'),
+        url('URWGeometricExt-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-ExtraBold.woff2') format('woff2'),
+        url('URWGeometricExt-ExtraBold.woff') format('woff'),
+        url('URWGeometricExt-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended';
+    src: url('URWGeometricExt-Heavy.eot');
+    src: local('URW Geometric Extended Heavy'), local('URWGeometricExt-Heavy'),
+        url('URWGeometricExt-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-Heavy.woff2') format('woff2'),
+        url('URWGeometricExt-Heavy.woff') format('woff'),
+        url('URWGeometricExt-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Light Oblique';
+    src: url('URWGeometricExt-LightOblique.eot');
+    src: local('URW Geometric Extended Light Oblique'), local('URWGeometricExt-LightOblique'),
+        url('URWGeometricExt-LightOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-LightOblique.woff2') format('woff2'),
+        url('URWGeometricExt-LightOblique.woff') format('woff'),
+        url('URWGeometricExt-LightOblique.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Extra';
+    src: url('URWGeometricExt-ExtraLight.eot');
+    src: local('URW Geometric Extended Extra Light'), local('URWGeometricExt-ExtraLight'),
+        url('URWGeometricExt-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-ExtraLight.woff2') format('woff2'),
+        url('URWGeometricExt-ExtraLight.woff') format('woff'),
+        url('URWGeometricExt-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Extra Bold Oblique';
+    src: url('URWGeometricExt-ExtraBoldOblique.eot');
+    src: local('URW Geometric Extended Extra Bold Oblique'), local('URWGeometricExt-ExtraBoldOblique'),
+        url('URWGeometricExt-ExtraBoldOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-ExtraBoldOblique.woff2') format('woff2'),
+        url('URWGeometricExt-ExtraBoldOblique.woff') format('woff'),
+        url('URWGeometricExt-ExtraBoldOblique.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Bold Oblique';
+    src: url('URWGeometricExt-BoldOblique.eot');
+    src: local('URW Geometric Extended Bold Oblique'), local('URWGeometricExt-BoldOblique'),
+        url('URWGeometricExt-BoldOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-BoldOblique.woff2') format('woff2'),
+        url('URWGeometricExt-BoldOblique.woff') format('woff'),
+        url('URWGeometricExt-BoldOblique.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended';
+    src: url('URWGeometricExt-Bold.eot');
+    src: local('URW Geometric Extended Bold'), local('URWGeometricExt-Bold'),
+        url('URWGeometricExt-Bold.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-Bold.woff2') format('woff2'),
+        url('URWGeometricExt-Bold.woff') format('woff'),
+        url('URWGeometricExt-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Extra Light Oblique';
+    src: url('URWGeometricExt-ExtraLightOblique.eot');
+    src: local('URW Geometric Extended Extra Light Oblique'), local('URWGeometricExt-ExtraLightOblique'),
+        url('URWGeometricExt-ExtraLightOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-ExtraLightOblique.woff2') format('woff2'),
+        url('URWGeometricExt-ExtraLightOblique.woff') format('woff'),
+        url('URWGeometricExt-ExtraLightOblique.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended';
+    src: url('URWGeometricExt-Black.eot');
+    src: local('URW Geometric Extended Black'), local('URWGeometricExt-Black'),
+        url('URWGeometricExt-Black.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-Black.woff2') format('woff2'),
+        url('URWGeometricExt-Black.woff') format('woff'),
+        url('URWGeometricExt-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended';
+    src: url('URWGeometricExt-Thin.eot');
+    src: local('URW Geometric Extended Thin'), local('URWGeometricExt-Thin'),
+        url('URWGeometricExt-Thin.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-Thin.woff2') format('woff2'),
+        url('URWGeometricExt-Thin.woff') format('woff'),
+        url('URWGeometricExt-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Thin Oblique';
+    src: url('URWGeometricExt-ThinOblique.eot');
+    src: local('URW Geometric Extended Thin Oblique'), local('URWGeometricExt-ThinOblique'),
+        url('URWGeometricExt-ThinOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-ThinOblique.woff2') format('woff2'),
+        url('URWGeometricExt-ThinOblique.woff') format('woff'),
+        url('URWGeometricExt-ThinOblique.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended';
+    src: url('URWGeometricExt-Regular.eot');
+    src: local('URW Geometric Extended'), local('URWGeometricExt-Regular'),
+        url('URWGeometricExt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-Regular.woff2') format('woff2'),
+        url('URWGeometricExt-Regular.woff') format('woff'),
+        url('URWGeometricExt-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Semi';
+    src: url('URWGeometricExt-SemiBold.eot');
+    src: local('URW Geometric Extended Semi Bold'), local('URWGeometricExt-SemiBold'),
+        url('URWGeometricExt-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-SemiBold.woff2') format('woff2'),
+        url('URWGeometricExt-SemiBold.woff') format('woff'),
+        url('URWGeometricExt-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Semi Bold Oblique';
+    src: url('URWGeometricExt-SemiBoldOblique.eot');
+    src: local('URW Geometric Extended Semi Bold Oblique'), local('URWGeometricExt-SemiBoldOblique'),
+        url('URWGeometricExt-SemiBoldOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-SemiBoldOblique.woff2') format('woff2'),
+        url('URWGeometricExt-SemiBoldOblique.woff') format('woff'),
+        url('URWGeometricExt-SemiBoldOblique.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended';
+    src: url('URWGeometricExt-Light.eot');
+    src: local('URW Geometric Extended Light'), local('URWGeometricExt-Light'),
+        url('URWGeometricExt-Light.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-Light.woff2') format('woff2'),
+        url('URWGeometricExt-Light.woff') format('woff'),
+        url('URWGeometricExt-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended';
+    src: url('URWGeometricExt-Medium.eot');
+    src: local('URW Geometric Extended Medium'), local('URWGeometricExt-Medium'),
+        url('URWGeometricExt-Medium.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-Medium.woff2') format('woff2'),
+        url('URWGeometricExt-Medium.woff') format('woff'),
+        url('URWGeometricExt-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Oblique';
+    src: url('URWGeometricExt-RegularOblique.eot');
+    src: local('URW Geometric Extended Oblique'), local('URWGeometricExt-RegularOblique'),
+        url('URWGeometricExt-RegularOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-RegularOblique.woff2') format('woff2'),
+        url('URWGeometricExt-RegularOblique.woff') format('woff'),
+        url('URWGeometricExt-RegularOblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'URW Geometric Extended Medium Oblique';
+    src: url('URWGeometricExt-MediumOblique.eot');
+    src: local('URW Geometric Extended Medium Oblique'), local('URWGeometricExt-MediumOblique'),
+        url('URWGeometricExt-MediumOblique.eot?#iefix') format('embedded-opentype'),
+        url('URWGeometricExt-MediumOblique.woff2') format('woff2'),
+        url('URWGeometricExt-MediumOblique.woff') format('woff'),
+        url('URWGeometricExt-MediumOblique.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+

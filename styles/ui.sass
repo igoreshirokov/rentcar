@@ -44,6 +44,16 @@
     height: 13px
     background-image: url("/images/ui/icons/phone.svg")
 
+.icon__facebook-red
+    width: 40px
+    height: 40px
+    background-image: url("/images/ui/icons/facebook-red.svg")
+
+.icon__instagram-red
+    width: 40px
+    height: 40px
+    background-image: url("/images/ui/icons/instagram-red.svg")
+
 .icon__facebook
     width: 40px
     height: 40px
@@ -113,9 +123,6 @@
                 text-decoration: underline
                 text-underline-offset: 5px
                 color: $red
-
-.topnav-mobile
-    display: none
 
 button
     padding: 15px 58px
@@ -190,7 +197,7 @@ label
     border-radius: 5px
     display: flex
     justify-content: center
-ul.react-datepicker__time-list 
+ul.react-datepicker__time-list
     overflow: hidden!important
     height: auto!important
     padding: 0!important
@@ -272,6 +279,13 @@ li.react-datepicker__time-list-item--disabled
     width: 100px!important
     text-align: center
 
+.header-email
+    display: none
+.email
+    font-family: "Jost"
+    font-weight: 700
+    text-transform: lowercase
+
 .locale-switcher
     display: flex
     flex-direction: row
@@ -286,3 +300,66 @@ li.react-datepicker__time-list-item--disabled
 
 .locale-active
     color: $red
+// .humburger-menu
+.menu__btn
+    position: relative
+    justify-content: center
+.menu__btn > span, .menu__btn > span::before, .menu__btn > span::after
+    background-color: $red
+    height: 2.5px
+.menu__btn
+    right: 0
+    span
+        width: 12.5px
+        align-items: flex-end
+        top: -10px
+        right: -12.5px
+        &::before
+            width: 20px
+            top: 7.5px
+            right: 0
+        &::after
+            width: 20px
+            top: -7.5px
+            right: 0
+#menu__toggle:checked ~ .menu__btn
+    span, span::before, span::after
+        background-color: $red
+
+.menu__box
+    background-color: $white
+    text-transform: uppercase
+    font-family: URW Geometric Extended
+    font-weight: 700
+    text-align: right
+    & >
+        color: $black
+    li
+        list-style-type: none
+        // padding: 15px
+        a
+            text-decoration: none
+            transition: .3s
+            padding: 7px 15px
+            &:hover
+                text-decoration: underline
+                text-underline-offset: 5px
+                color: $red
+    .menu__item
+        color: $black
+    .menu__item-active
+        text-decoration: underline
+        text-underline-offset: 5px
+        color: $red
+    .header-contacts
+        padding: 15px
+    .header-email
+        display: block
+
+.social
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    padding: 0 15px
+    a
+        padding: 5px

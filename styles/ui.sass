@@ -29,6 +29,16 @@
     background-position: 50% 50%
     cursor: pointer
 
+.icon__marker
+    width: 17px
+    height: 17px
+    background-image: url("/images/ui/icons/marker.svg")
+
+.icon__phone-red
+    width: 13px
+    height: 13px
+    background-image: url("/images/ui/icons/phone-red.svg")
+
 .icon__phone
     width: 13px
     height: 13px
@@ -103,6 +113,9 @@
                 text-decoration: underline
                 text-underline-offset: 5px
                 color: $red
+
+.topnav-mobile
+    display: none
 
 button
     padding: 15px 58px
@@ -258,3 +271,18 @@ li.react-datepicker__time-list-item--disabled
 .timepicker-popper
     width: 100px!important
     text-align: center
+
+.locale-switcher
+    display: flex
+    flex-direction: row
+
+.locale
+    text-transform: capitalize
+    background: none
+    color: $black
+    padding: 0
+    margin: 5px
+    box-shadow: none
+
+.locale-active
+    color: $red

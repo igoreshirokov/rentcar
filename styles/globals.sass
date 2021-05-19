@@ -2,11 +2,13 @@
 @import '../fonts/Jost/stylesheet.css'
 @import ui
 @import color
+@import header
+@import home
 
 body
     padding: 0
     margin: 0
-    font-family: URW Geometric Extended
+    font-family: "Jost"
     color: $black
     font-size: 16px
 a
@@ -15,9 +17,23 @@ a
     width: 100px
     height: 40px
 // fonts properties
+.subtitle
+    font-weight: 600
+    font-size: 1.4em
+    max-width: 500px
+    line-height: 32px
+
+
+span
+    line-height: 25.6px
 h1
+    font-family: "URW Geometric Extended"
     font-weight: 900
     font-size: 3.5em
+    max-width: 500px
+    margin-bottom: 10px
+    line-height: 56px
+
 h2
     font-weight: 900
     font-size: 2.5em
@@ -34,3 +50,36 @@ footer
         color: $white
         text-decoration: none
         font-weight: 600
+
+section
+    padding: 0 15px
+
+@media (min-width: 575.98px)
+    section
+        padding: 0 calc(50% - 270px)
+
+@media (min-width: 767.98px)
+    section
+        padding: 0 calc(50% - 360px)
+
+@media (min-width: 991.98px)
+    section
+        padding: 0 calc(50% - 480px)
+
+@media (min-width: 1199.98px)
+    section
+        padding: 0 calc(50% - 590px)
+
+.phone-number
+    font-weight: 900
+    font-size: 1em
+
+
+.uppercase
+    text-transform: uppercase
+
+.red
+    color: $red
+
+.bold
+    font-weight: 700

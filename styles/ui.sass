@@ -292,6 +292,7 @@ li.react-datepicker__time-list-item--disabled
 .locale-switcher
     display: flex
     flex-direction: row
+    flex-wrap: nowrap
 
 .locale
     text-transform: capitalize
@@ -300,23 +301,25 @@ li.react-datepicker__time-list-item--disabled
     padding: 0
     margin: 5px
     box-shadow: none
+    width: auto
 
 .locale-active
     color: $red
 // .humburger-menu
 .menu__btn
+    top: 50%
+    right: 0
     position: relative
     justify-content: center
 .menu__btn > span, .menu__btn > span::before, .menu__btn > span::after
     background-color: $red
     height: 2.5px
 .menu__btn
-    right: 0
     span
         width: 12.5px
         align-items: flex-end
-        top: -10px
-        right: -12.5px
+        top: 50%
+        right: 50%
         &::before
             width: 20px
             top: 7.5px

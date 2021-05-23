@@ -1,10 +1,11 @@
 import Contacts from "../Content/Contacts"
 import Social from "../Content/Social"
+import Link from "next/link"
 
-const Menu = () => {
+const Menu = ({ items }) => {
     function menuHundler(e) {
         document.querySelector("#menu__toggle").checked = false
-        
+
     }
     return (
         <div className="hamburger-menu">
@@ -14,10 +15,15 @@ const Menu = () => {
             </label>
             <div onClick={(e) => menuHundler(e)} className="shadow-bg"></div>
             <ul onClick={(e) => menuHundler(e)} className="menu__box">
-                <li><a className="menu__item menu__item-active" htmlFor="menu__toggle" href="#contacts">ettevõtte</a></li>
-                <li><a className="menu__item" htmlFor="menu__toggle" href="#services">autod</a></li>
-                <li><a className="menu__item" htmlFor="menu__toggle" href="#portfolio">Renditingimused</a></li>
-                <li><a className="menu__item" htmlFor="menu__toggle" href="#resume">Kontakt</a></li>
+                {items.map(item => {
+                    return (
+                        <li key={item.title + item.href} className={item.active ? "menu__item menu__item-active" : 'menu__item'}>
+                            <Link href={item.href}>
+                                <a htmlFor="menu__toggle">{item.title}</a>
+                            </Link>
+                        </li>
+                    )
+                })}
                 <Contacts />
                 <Social />
             </ul>

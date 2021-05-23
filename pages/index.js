@@ -1,14 +1,10 @@
-import Header from '../components/Header.js'
-import Head from 'next/head'
+import { MainLayout } from '../components/Layouts/MainLayout.js'
 
 export default function Home() {
     return (
-        <>
-            <Head>
-                <title>My page title</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Head>
-            <Header />
+
+        <MainLayout title="Home">
+
             <section className="home-main">
                 <h1>Säästu <span className="red">Autorent</span> Tallinnas</h1>
                 <p className="subtitle"><span className="uppercase red">RED</span> Autorent on soodsate hindadega ökonoomsete autode rent Tallinnas alates <span className="red bold">6.66 eurot/ööpäev</span></p>
@@ -36,8 +32,6 @@ export default function Home() {
                     <p>Saate endale rentida meelepärase auto alates ühest päevast kuni terve aastani. Kolme kuud ületava rendiperioodi korral esitame parema pakkumise.</p>
                 </div>
                 <img src="/images/content/home/image_about.jpg" />
-                {/* <div className="home-about__image">
-                    </div> */}
             </section>
             <section className="home-rentida">
                 <div className="home-rentida__header">
@@ -77,58 +71,6 @@ export default function Home() {
                     <img src="/images/content/home/map.png" />
                 </div>
             </section>
-            <footer>
-                <section className="footer">
-                    <div className="footer-elements">
-                        <div className="footer-logo">
-                            <img className="logo" src="/images/logo-white.svg" />
-                        </div>
-                        <div className="footer-menu">
-                            <ul>
-                                <li><a>ettevõtte</a></li>
-                                <li><a>Autod</a></li>
-                                <li><a>Renditingimused</a></li>
-                            </ul>
-                        </div>
-                        <div className="footer-address">
-                            <h4>Red Autorent OÜ</h4>
-                            <p>Reg.nr: 14576442</p>
-                            
-                            <p>Akadeemia tee 6, Tallinn Estonia, 12611</p>
-                        </div>
-                        <div className="footer-bank">
-                            <h4>Swedbank</h4>
-                            <p><span className="bold">IBAN</span> EE812200221070224653</p>
-                            <p><span className="bold">SWIFT</span> HABAEE2X</p>
-                        </div>
-                        <div className="footer-contacts">
-                            <div className="footer__email">
-                                <a href="#">
-                                    {/* <div className="icon icon__phone"></div> */}
-                                    <div className="email">redautorent@gmail.com</div>
-                                </a>
-                            </div>
-                            <div className="footer__phone">
-                                <a href="#">
-                                    <div className="icon icon__phone"></div>
-                                    <div className="phone-number">+372 5535603</div>
-                                </a>
-                            </div>
-                            <div className="footer__social">
-                                <a href="#">
-                                    <div className="icon icon__facebook"></div>
-                                </a>
-                                <a href="#">
-                                    <div className="icon icon__instagram"></div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="copyright">
-                        © Red Autorent OÜ, 2021
-                    </div>
-                </section>
-            </footer>
-        </>
+        </MainLayout>
     )
 }

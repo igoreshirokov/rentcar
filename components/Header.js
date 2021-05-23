@@ -2,11 +2,51 @@ import Menu from "./ui/Menu"
 import Contacts from "./Content/Contacts"
 import LocaleSwitcher from "./ui/LocaleSwitcher"
 import { useMediaQuery } from "react-responsive"
-
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import Link from "next/link"
 
 export default function Header() {
 
+    const menuItems = [
+        {
+            href: "/",
+            title: "ettevõtte",
+            active: 0
+        },
+        {
+            href: "/autod",
+            title: "autod",
+            active: 0
+        },
+        {
+            href: "/renditingimused",
+            title: "Renditingimused",
+            active: 0
+        },
+        {
+            href: "/kontakt",
+            title: "Kontakt",
+            active: 0
+        },
+    ]
+    const [menu, setMenu] = useState(menuItems)
+    const router = useRouter()
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' })
+    
+    useEffect(() => {
+        setMenu(
+            menuItems.map(item => {
+                let currentPage = router.pathname
+                if (currentPage == item.href) {
+                    item.active = 1
+                } else {
+                    item.active = 0
+                }
+                return item
+            })
+        )
+    }, [])
 
     return (
         // <div className="header">
@@ -17,15 +57,21 @@ export default function Header() {
             { isTabletOrMobile ?
                 <>
                     <LocaleSwitcher />
-                    <Menu />
+                    <Menu items={menu} />
                 </> : (
                     <>
                         <div className="header-nav">
                             <ul className="topnav">
-                                <li><a href="#">ettevõtte</a></li>
-                                <li><a href="#">autod</a></li>
-                                <li><a href="#">Renditingimused</a></li>
-                                <li><a href="#">Kontakt</a></li>
+                                {menu.map(item => {
+                                    return (
+                                        <li key={item.title + item.href} className={item.active ? "topnav__item-active" : ''}>
+                                            <Link href={item.href}>
+                                                <a>{item.title}</a>
+                                            </Link>
+                                        </li>
+
+                                    )
+                                })}
                             </ul>
                         </div>
                         <LocaleSwitcher />

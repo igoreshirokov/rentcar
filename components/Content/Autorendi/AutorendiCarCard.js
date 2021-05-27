@@ -1,14 +1,13 @@
-import { CarSlider } from './CarSlider.js'
 import Link from 'next/link'
 
 
-export const CarCard = ({ car }) => {
+export const AutorendiCarCard = ({ car }) => {
     const carPKeys = Object.keys(car.carParameters)
     const pricePKeys = Object.keys(car.priceParameters)
 
     return (
         <div className="car__card">
-            <CarSlider images={car.images} />
+            <img src={car.images[0]} />
             <div className="car__card-parameters">
                 <ul className="parameters car-parameters">
                     {carPKeys.map((param, index) => {
@@ -30,9 +29,9 @@ export const CarCard = ({ car }) => {
                         )
                     })}
 
-                    <Link href="/autorent">
-                        <button className="button">Broneeri</button>
-                    </Link>
+
+                    
+
                 </ul>
             </div>
         </div>

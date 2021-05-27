@@ -1,0 +1,92 @@
+// .admin-autod-title
+.admin-autod-head
+    width: 100%
+    max-width: 100%
+    padding-bottom: 30px
+.admin-autod-subtitle
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    p
+        max-width: 300px
+.admin-car__card
+    position: relative
+
+.admin-settings
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: absolute
+    top: 15px
+    left: 15px
+    z-index: 10
+    div
+        margin: 10px
+
+// popup
+
+.admin-popup-wrapper
+    position: fixed
+    z-index: 200
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background: #000000d0
+    display: flex
+    justify-content: center
+    align-items: center
+.admin-popup-content
+    position: relative
+    width: 90%
+    max-width: 992px
+    height: 90%
+    background: #fff
+    padding: 35px 42px
+    display: flex
+    flex-direction: column
+    overflow: auto
+.admin-image-picker
+    display: flex
+    flex-direction: row
+.admin-file-form
+    width: 285px
+    height: 193px
+    display: flex
+    justify-content: center
+    align-items: center
+    border: solid #929292 1px
+    text-decoration: underline
+
+.admin-carsettings-form__car-parameters, .admin-carsettings-form__price-parameters
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    label
+        width: calc(25% - 15px)
+
+.save-change-button
+    margin-top: 30px!important
+.admin-popup-close-button
+    position: absolute
+    right: 40px
+    top: 30px
+
+@media screen and (max-width: 576px)
+    .admin-carsettings-form__car-parameters, .admin-carsettings-form__price-parameters
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        label
+            width: 100%
+    .admin-file-form
+        width: 100%
+        margin-top: 40px
+    .admin-popup-content
+        width: 100%
+        height: 100%
+
+    

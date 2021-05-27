@@ -1,14 +1,27 @@
-import { CarSlider } from './CarSlider.js'
+import { CarSlider } from '../Autod/CarSlider.js'
 import Link from 'next/link'
+import { PopupSettings } from './PopupSettings'
+import { useState } from 'react'
+import styles from '../../../styles/admin.module.sass'
 
 
-export const CarCard = ({ car }) => {
+
+export const AdminCarCard = ({ car }) => {
     const carPKeys = Object.keys(car.carParameters)
     const pricePKeys = Object.keys(car.priceParameters)
+    const [settingsOn, setSettingsOn] = useState(false)
+    function settingsHundler () {
+        setSettingsOn(!settingsOn)
+    }
 
     return (
-        <div className="car__card">
+        <div className={`car__card ${styles["admin-car__card"]}`}>
+            {settingsOn && <PopupSettings />}
             <CarSlider images={car.images} />
+            <div className={styles["admin-settings"]}>
+                <div onClick={() => settingsHundler()} className="icon icon__gear"></div>
+                <div className="icon icon__trash"></div>
+            </div>
             <div className="car__card-parameters">
                 <ul className="parameters car-parameters">
                     {carPKeys.map((param, index) => {

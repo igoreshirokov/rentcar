@@ -3,10 +3,11 @@ import React, { useState } from "react"
 import { setHours, setMinutes } from "date-fns"
 
 export default function Time() {
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), 0), 9));
     return (
         <>
             <DatePicker
+                // value={startDate}
                 className="timepicker"
                 popperPlacement="bottom-end"
                 popperClassName="timepicker-popper"

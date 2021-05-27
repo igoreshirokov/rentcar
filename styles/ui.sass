@@ -164,13 +164,19 @@ button
         &::after
             opacity: 1
 // forms
-
+select 
+    & > option 
+        padding: 10px 15px
 label
     display: flex
     flex-direction: column
     width: 285px
     margin: 5px
-    input, select
+    textarea
+        resize: none
+        width: 100%
+    input, select, textarea
+        cursor: pointer
         box-sizing: border-box
         width: 100%
         padding: 12px 11px
@@ -375,3 +381,44 @@ li.react-datepicker__time-list-item--disabled
     padding: 0 15px
     a
         padding: 5px
+
+
+
+.popup-wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    left: 0
+    top: 0
+    width: 100vw
+    height: 100vh
+    z-index: 200
+    background: #00000090
+
+.popup-content
+    position: relative
+    padding: 5% 0
+    background: $white
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    p
+        width: 80%
+        display: block
+        text-align: center
+        margin: 0 auto
+    button
+        margin-top: 30px
+.popup-content__message-title
+    width: 80%
+    text-align: center
+    max-width: 627px
+    font-size: 2.5em
+    font-weight: 900
+
+.popup-close
+    position: absolute
+    top: 30px
+    right: 30px

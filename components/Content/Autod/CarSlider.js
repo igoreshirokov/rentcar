@@ -6,9 +6,10 @@ import MediaQuery from 'react-responsive'
 SwiperCore.use([Pagination])
 
 export const CarSlider = ({ images }) => {
+
+    images = JSON.parse(images)
     const [slider, setSlider] = useState(null)
     const [activeSlide, setActiveSlide] = useState(0)
-
     return (
         <div className="car-slider">
             <Swiper

@@ -89,7 +89,6 @@
         width: 100%
         height: 100%
 
-    
 .auth
     display: flex
     justify-content: center
@@ -98,3 +97,37 @@
     form
         display: flex
         flex-direction: column
+
+.admin-logout-button
+    padding: 5px 20px
+
+.admin-images-list
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 
+    grid-template-rows: 1fr 1fr
+    margin: 0 0 0 30px
+
+@media screen and (max-width: 766px)
+    .admin-image-picker
+        display: flex
+        flex-direction: column
+    .admin-images-list
+        display: flex
+        flex-direction: row
+        overflow: auto
+        margin: 30px 0 0 0
+.admin-image-delete
+    position: absolute
+
+.admin-image-item
+    position: relative
+
+
+.admin-image-picker
+    form
+        width: 100%
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        

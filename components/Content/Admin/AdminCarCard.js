@@ -3,22 +3,25 @@ import Link from 'next/link'
 import { PopupSettings } from './PopupSettings'
 import { useState } from 'react'
 import styles from '../../../styles/admin.module.sass'
-
+import { PopupDelete } from './PopupDelete'
 
 
 export const AdminCarCard = ({ car }) => {
     const [settingsOn, setSettingsOn] = useState(false)
+    const [deletePopup, setDeletePopup] = useState(false)
+
     function settingsHundler() {
         setSettingsOn(!settingsOn)
     }
 
-    function deleteHundler () {
-        console.log("delete")
+    function deleteHundler() {
+        setDeletePopup(!deletePopup)
     }
 
     return (
         <div className={`car__card ${styles["admin-car__card"]}`}>
-            {settingsOn && <PopupSettings car={car} close={settingsHundler} />}
+            {deletePopup && <PopupDelete car={car} close={deleteHundler} />}
+            {settingsOn && <PopupSettings typeSubmit="update" car={car} close={settingsHundler} />}
             <CarSlider images={car.Images} />
             <div className="car__card-parameters">
                 <div className={styles["admin-settings"]}>

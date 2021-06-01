@@ -10,16 +10,11 @@ export default function Login({ csrfToken }) {
 
     function hundleSubmit(e) {
         e.preventDefault()
-        console.log({username, password})
         signIn('credentials', { 
             username, 
             password, 
             callbackUrl: `${window.location.origin}/admin`
         })
-        // signIn("Credentials", {
-        //     username: username,
-        //     password: password
-        // }).then(e => console.log("then" + e)).catch(e => console.log(e))
     }
 
     function hundleChange (e) {

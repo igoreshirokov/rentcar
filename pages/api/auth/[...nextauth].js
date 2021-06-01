@@ -5,8 +5,8 @@ const isCorrectCredentials = credentials =>
 
     credentials.username === "uuu" &&
     credentials.password === "p"
-// credentials.username === process.env.NEXTAUTH_USERNAME &&
-// credentials.password === process.env.NEXTAUTH_PASSWORD
+// credentials.username === process.env.AUTH_USERNAME &&
+// credentials.password === process.env.AUTH_PASSWORD
 
 const options = {
     providers: [

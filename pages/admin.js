@@ -6,13 +6,18 @@ import { useEffect, useState } from 'react'
 import { BASE_URL } from '../components/Constants'
 import { useRouter } from "next/router"
 import { signIn, signout, signOut, useSession } from "next-auth/client"
+import { PopupSettings } from '../components/content/admin/PopupSettings'
+
 
 export default function Admin({ data }) {
     const [cars, setCars] = useState(false)
     const [session, loading] = useSession()
-    const [catalog, setCatalog] = useState([])
+    const [settingsOn, setSettingsOn] = useState(false)
     const router = useRouter()
 
+    function settingsHundler () {
+        setSettingsOn(!settingsOn)
+    }
 
     useEffect(async () => {
         try {
@@ -49,15 +54,29 @@ export default function Admin({ data }) {
 
     if (!session) {
         toLoginPage()
-    } else {
-        console.log(session)
     }
 
+    const defaultCar = {
+        id: null,
+        model: 'model',
+        Year: 2005,
+        Engine: '1.5',
+        Fuel: 'Bensiin 95',
+        Transmission: 'Auto',
+        Doors: 5,
+        Consumption: 6,
+        Day: 0,
+        Sixday: 0,
+        Week: 0,
+        Month: 0,
+        Images: JSON.stringify([]),
+    }
 
     return (
         <MainLayout title="Home">
             {!session ? <p>Need authorization</p> : (
                 <>
+                {settingsOn && <PopupSettings typeSubmit="create" car={defaultCar} close={settingsHundler} />}
                     <section className="autod-breadcrumbs">
                         <div className="breadcrumbs">
                             <p>
@@ -72,7 +91,7 @@ export default function Admin({ data }) {
                         </div>
                         <div className={styles["admin-autod-subtitle"]}>
                             <p>Hoolitseme oma klientide eest ja pakume laia valikut teenuseid</p>
-                            <button className="button__light">Lisage sõiduk</button>
+                            <button onClick={settingsHundler} className="button__light">Lisage sõiduk</button>
                         </div>
                     </section>
                     <section className="autod-cars">

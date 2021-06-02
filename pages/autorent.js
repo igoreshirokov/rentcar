@@ -3,46 +3,95 @@ import { MainLayout } from '../components/Layouts/MainLayout'
 import Calendar from '../components/ui/Calendar'
 import Time from '../components/ui/Time'
 import { useEffect, useState } from 'react'
-import { Popup } from '../components/Content/Popup'
+import { PopupBroner } from '../components/Content/Autorendi/PopupBroner'
 import { AutoSelect } from '../components/Content/Autorendi/AutoSelect'
 import { BASE_URL } from '../components/Constants'
-export default function Autorent({ data }) {
-    
-    const [autoSelect, setAutoSelect] = useState(data.car)
-    
+import { useRouter } from 'next/router'
+import { FetchLoading } from '../components/ui/FetchLoading'
 
+export default function Autorent({ data }) {
+    const router = useRouter()
+    const [formData, setFormData] = useState({
+        name: 0,
+        surname: '',
+        email: '',
+        address: '',
+        phone: 0,
+        zip: '',
+        auto: '',
+        dateStart: '',
+        timeStart: '',
+        dateStop: '',
+        timeStop: ''
+    })
+
+    const [errorMessage, setErrorMessage] = useState(false)
+    const [autoSelect, setAutoSelect] = useState(data.car)
     const [popup, setPopup] = useState(false)
-    function formHundler () {
-        setPopup(!popup)
-        setTimeout(() => {
-            console.log(popup)
-        }, 3000);
+    const [fetchLoading, setFetchLoading] = useState(false)
+    async function formRequest(data) {
+        const request = await fetch(BASE_URL + 'api/broner', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+        const response = await request.json()
+
+        return response.status
+    }
+
+    function formHundler() {
+        if (formData['name'] && formData['phone']) {
+            setFetchLoading(true)
+
+            formRequest(formData)
+                .then(res => {
+                    setTimeout(() => {
+                        setFetchLoading(false)
+                        setPopup(!popup)
+                    }, 2000)
+                })
+        } else {
+            setErrorMessage('Name or Phone is required')
+        }
+
     }
 
     function closePopup() {
-        setPopup(!popup)
+        router.push('/')
     }
+
+    function hundlerChange(e) {
+        e.preventDefault()
+        setFormData(prevState => {
+            let state = prevState
+            state[e.target.name] = e.target.value
+            return { ...state }
+        })
+
+    }
+
 
     if (data.status === 200) {
         return (
             <MainLayout title="Autorendi päringu vorm">
-                {popup && <Popup close={closePopup} />}
+                {popup && <PopupBroner close={closePopup} />}
+                {fetchLoading && <FetchLoading />}
                 <section className="autorendi">
                     <div className="breadcrumbs">
-                        
-                            <span className="breadcrumb-parent">Peamine/</span>
-                            <span className="breadcrumb-parent">Autod/</span>
-                            <span className="breadcrumb-current">Autorendi päringu vorm</span>
-                        
+                        <span className="breadcrumb-parent">Peamine/</span>
+                        <span className="breadcrumb-parent">Autod/</span>
+                        <span className="breadcrumb-current">Autorendi päringu vorm</span>
+
                     </div>
                     <h2><span className="red">Autorendi</span> päringu vorm</h2>
                     <p>Täitke taotlus ja meie juht võtab teiega ühendust <span className="red">30 minuti</span> jooksul</p>
                 </section>
                 <section className="autorendi-broner">
-                    <form className="form autorendi-form">
+                    {errorMessage && <span className="red bold">{errorMessage}</span>}
+                    <form onChange={hundlerChange} className="form autorendi-form">
                         <div className="form-person">
                             <label>Nimi
-                        <input type="text" name="name" placeholder="Alex"></input>
+                        <input type="text" name="name" placeholder="Alex" required></input>
                             </label>
                             <label>Perekonnanimi
                         <input type="text" name="surname" placeholder="Petrov"></input>
@@ -54,7 +103,7 @@ export default function Autorent({ data }) {
                         <input type="text" name="address" placeholder="Vilnus, Krony 44"></input>
                             </label>
                             <label>Tel. number
-                        <input type="text" name="phone" placeholder="+ XXX-XX-XXX-XX-XX"></input>
+                        <input type="text" name="phone" placeholder="+ XXX-XX-XXX-XX-XX" required></input>
                             </label>
                             <label>Isikukood
                         <input type="text" name="zip" placeholder="ХХХ"></input>
@@ -63,12 +112,8 @@ export default function Autorent({ data }) {
                         <div className="form-auto">
                             <label>Auto
                                 <AutoSelect />
-                        {/* <select>
-                                    <option>Dacia Logan Sedan</option>
-                                    <option>Dacia Logan Sedan</option>
-                                </select> */}
                             </label>
-    
+
                         </div>
                         <div className="form-date">
                             <label>Rendikuupäev
@@ -92,6 +137,7 @@ export default function Autorent({ data }) {
                     </form>
                     <div className="autorendi-carcard">
                         <AutorendiCarCard car={data.car} />
+                        {errorMessage && <span className="red bold">{errorMessage}</span>}
                         <button onClick={formHundler} className="button">Broneeri</button>
                     </div>
                 </section>
@@ -103,12 +149,14 @@ export default function Autorent({ data }) {
 }
 
 Autorent.getInitialProps = async (ctx) => {
-    const res = await fetch(BASE_URL + "api/car/" + ctx.query.id) 
+    const res = await fetch(BASE_URL + "api/car/" + ctx.query.id)
     const json = await res.json()
-    return { data: {
-        car: json,
-        status: 200
-    }}
+    return {
+        data: {
+            car: json,
+            status: 200
+        }
+    }
 }
 
 

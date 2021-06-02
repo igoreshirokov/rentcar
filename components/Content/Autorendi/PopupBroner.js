@@ -1,4 +1,6 @@
-export const PopupDelete = ({ close }) => {
+
+export const PopupBroner = ({close}) => {
+
     return (
         <div id="wrapper" onClick={(e) => e.target.id === 'wrapper' && close()} className="popup-wrapper">
             <div className="popup-content">

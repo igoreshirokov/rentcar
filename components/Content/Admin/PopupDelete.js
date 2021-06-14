@@ -5,7 +5,7 @@ export const PopupDelete = ({ car, close }) => {
 
     async function deleteCar() {
         const carId = { id: car['id'] }
-        const req = await fetch('http://localhost:3000/api/car/delete', {
+        const req = await fetch('http://nginxtest/api/car/delete', {
             method: 'PUT',
             body: JSON.stringify(carId)
         });

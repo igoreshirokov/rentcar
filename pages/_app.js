@@ -1,13 +1,13 @@
 import 'swiper/swiper-bundle.min.css'
 import '../styles/globals.sass'
-import { CatalogContextProvider } from '../store/store'
+import { StoreContextProvider } from '../store/store'
 import { Provider } from 'next-auth/client'
 function MyApp({ Component, pageProps }) {
   return (
     <Provider session={pageProps.session}>
-      <CatalogContextProvider>
+      <StoreContextProvider>
         <Component {...pageProps} />
-      </CatalogContextProvider>
+      </StoreContextProvider>
     </Provider>
   )
 }

@@ -5,18 +5,22 @@
   "scripts": {
     "export": "next build && next export",
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start"
+    "build": "next build",
+    "start": "next start",
+    "server": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^0.4.4",
     "@prisma/client": "^2.23.0",
     "axios": "^0.21.1",
     "base64-img": "^1.0.1",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.21.3",
+    "express": "^4.17.1",
     "next": "^10.2.0",
     "next-auth": "^3.24.0",
     "react": "17.0.2",
+    "react-cookie": "^4.0.3",
     "react-datepicker": "^3.8.0",
     "react-dom": "17.0.2",
     "react-responsive": "^8.2.0",

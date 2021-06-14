@@ -3,30 +3,34 @@ import Contacts from "./Content/Contacts"
 import LocaleSwitcher from "./ui/LocaleSwitcher"
 import { useMediaQuery } from "react-responsive"
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Link from "next/link"
+import { StoreContext } from '../store/store'
+
 
 export default function Header() {
+    const ctx = useContext(StoreContext)
+    const { lang } = ctx.state
 
     const menuItems = [
         {
             href: "/",
-            title: "ettevõtte",
+            title: lang == 'et' ? "ettevõtte" : lang == 'en' ? 'enterprise' : lang == 'ru' && 'предприятие',
             active: 0
         },
         {
             href: "/autod",
-            title: "autod",
+            title: lang == 'et' ? "autod" : lang == 'en' ? 'cars' : lang == 'ru' && 'авто',
             active: 0
         },
         {
             href: "/renditingimused",
-            title: "Renditingimused",
+            title: lang == 'et' ? "renditingimused" : lang == 'en' ? 'Rental conditions' : lang == 'ru' && 'Условия аренды',
             active: 0
         },
         {
             href: "/kontakt",
-            title: "Kontakt",
+            title: lang == 'et' ? "kontakt" : lang == 'en' ? 'contact' : lang == 'ru' && 'контакты',
             active: 0
         },
     ]

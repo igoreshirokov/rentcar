@@ -1,9 +1,15 @@
 import { CarSlider } from '../../../ui/CarSlider.js'
-import Link from 'next/link'
-
+import { useRouter } from 'next/router'
+import { FormContext } from '../../../../store/formContext'
+import { useContext } from 'react'
 
 export const CarCard = ({ car }) => {
-
+    const formContext = useContext(FormContext)
+    const router = useRouter()
+    function hundlerBroner() {
+        formContext.setForm('SET_AUTO', car['model'])
+        router.push('/autorent')
+    }
     return (
         <div className="car__card">
             <CarSlider images={car.Images} />
@@ -23,7 +29,7 @@ export const CarCard = ({ car }) => {
                     </li>
                     <li>
                         <span className="parametr-name">Топливо</span>
-                        <span className="bold parametr-value">{car['Fuel'] == 'Diesel' ? 'Дизель' : car['Fuel'] == 'Gaz' ? 'Газ' : `Бензин ${car['Fuel']}`}</span>
+                        <span className="bold parametr-value">{car['Fuel'] == 'Diesel' ? 'Дизель' : car['Fuel'] == 'Gas' ? 'LPG (Газ) + Бензин' : `Бензин ${car['Fuel']}`}</span>
                     </li>
                     <li>
                         <span className="parametr-name">Коробка передач</span>
@@ -31,7 +37,7 @@ export const CarCard = ({ car }) => {
                     </li>
                     <li>
                         <span className="parametr-name">Кол-во дверей</span>
-                        <span className="bold parametr-value">{car['Doors']}</span>
+                        <span className="bold parametr-value">{car['Doors']} дверей</span>
                     </li>
                     <li>
                         <span className="parametr-name">Расход топлива</span>
@@ -55,44 +61,13 @@ export const CarCard = ({ car }) => {
                         <span className="parametr-name">1 месяц</span>
                         <span className={`bold parametr-value`}>{car['Month']} € ({(car['Month'] / 30).toFixed(2)} € /сутки)</span>
                     </li>
-                    <Link href={{pathname: "/autorent", query: { id: car['id']}}}>
-                        <button className="button">Бронировать</button>
-                    </Link>
+
+                    <button onClick={hundlerBroner} className="button">Бронировать</button>
+
                 </ul>
             </div>
         </div>
     )
 
 
-    // return (
-    //     <div className="car__card">
-    //         <CarSlider images={car.images} />
-    //         <div className="car__card-parameters">
-    //             <ul className="parameters car-parameters">
-    //                 {carPKeys.map((param, index) => {
-    //                     return (
-    //                         <li key={car.carParameters[param]}>
-    //                             <span className="parametr-name">{param}</span>
-    //                             <span className={`${index == 0 && "red"} bold parametr-value`}>{car.carParameters[param]}</span>
-    //                         </li>
-    //                     )
-    //                 })}
-    //             </ul>
-    //             <ul className="parameters rent-parameters">
-    //                 {pricePKeys.map((param, index) => {
-    //                     return (
-    //                         <li key={car.priceParameters[param]}>
-    //                             <span className="parametr-name">{param}</span>
-    //                             <span className={`bold parametr-value`}>{car.priceParameters[param]}</span>
-    //                         </li>
-    //                     )
-    //                 })}
-
-    //                 <Link href="/autorent">
-    //                     <button className="button">Broneeri</button>
-    //                 </Link>
-    //             </ul>
-    //         </div>
-    //     </div>
-    // )
 }

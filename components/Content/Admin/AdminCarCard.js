@@ -1,10 +1,9 @@
-import { CarSlider } from '../Autod/CarSlider.js'
+import { CarSlider } from '../../ui/CarSlider'
 import Link from 'next/link'
 import { PopupSettings } from './PopupSettings'
 import { useState } from 'react'
 import styles from '../../../styles/admin.module.sass'
 import { PopupDelete } from './PopupDelete'
-
 
 export const AdminCarCard = ({ car }) => {
     const [settingsOn, setSettingsOn] = useState(false)

@@ -1,15 +1,21 @@
 import { CarSlider } from '../../../ui/CarSlider.js'
-import Link from 'next/link'
-
+import { useRouter } from 'next/router'
+import { FormContext } from '../../../../store/formContext'
+import { useContext } from 'react'
 
 export const CarCard = ({ car }) => {
-
+    const formContext = useContext(FormContext)
+    const router = useRouter()
+    function hundlerBroner () {
+        formContext.setForm('SET_AUTO', car['model'])
+        router.push('/autorent')
+    }
     return (
         <div className="car__card">
             <CarSlider images={car.Images} />
             <div className="car__card-parameters">
                 <ul className="parameters car-parameters">
-                    <li>
+                <li>
                         <span className="parametr-name">Auto</span>
                         <span className="red bold parametr-value">{car['model']}</span>
                     </li>
@@ -23,7 +29,7 @@ export const CarCard = ({ car }) => {
                     </li>
                     <li>
                         <span className="parametr-name">Kütus</span>
-                        <span className="bold parametr-value">{car['Fuel'] == 'Diesel' ? 'Diisel' : car['Fuel'] == 'Gaz' ? 'Gaas' : `Bensiin ${car['Fuel']}`}</span>
+                        <span className="bold parametr-value">{car['Fuel'] == 'Diesel' ? 'Diisel' : car['Fuel'] == 'Gas' ? 'LPG (Gaas) + Bensiin' : `Bensiin ${car['Fuel']}`}</span>
                     </li>
                     <li>
                         <span className="parametr-name">Käigukast</span>
@@ -31,7 +37,7 @@ export const CarCard = ({ car }) => {
                     </li>
                     <li>
                         <span className="parametr-name">Uste arv</span>
-                        <span className="bold parametr-value">{car['Doors']}</span>
+                        <span className="bold parametr-value">{car['Doors']} uksed</span>
                     </li>
                     <li>
                         <span className="parametr-name">Kütusekulu</span>
@@ -55,44 +61,13 @@ export const CarCard = ({ car }) => {
                         <span className="parametr-name">1 Kuu</span>
                         <span className={`bold parametr-value`}>{car['Month']} € ({(car['Month'] / 30).toFixed(2)} € /päev)</span>
                     </li>
-                    <Link href={{pathname: "/autorent", query: { id: car['id']}}}>
-                        <button className="button">Broneeri</button>
-                    </Link>
+                
+                        <button onClick={hundlerBroner} className="button">Broneeri</button>
+                    
                 </ul>
             </div>
         </div>
     )
 
 
-    // return (
-    //     <div className="car__card">
-    //         <CarSlider images={car.images} />
-    //         <div className="car__card-parameters">
-    //             <ul className="parameters car-parameters">
-    //                 {carPKeys.map((param, index) => {
-    //                     return (
-    //                         <li key={car.carParameters[param]}>
-    //                             <span className="parametr-name">{param}</span>
-    //                             <span className={`${index == 0 && "red"} bold parametr-value`}>{car.carParameters[param]}</span>
-    //                         </li>
-    //                     )
-    //                 })}
-    //             </ul>
-    //             <ul className="parameters rent-parameters">
-    //                 {pricePKeys.map((param, index) => {
-    //                     return (
-    //                         <li key={car.priceParameters[param]}>
-    //                             <span className="parametr-name">{param}</span>
-    //                             <span className={`bold parametr-value`}>{car.priceParameters[param]}</span>
-    //                         </li>
-    //                     )
-    //                 })}
-
-    //                 <Link href="/autorent">
-    //                     <button className="button">Broneeri</button>
-    //                 </Link>
-    //             </ul>
-    //         </div>
-    //     </div>
-    // )
 }

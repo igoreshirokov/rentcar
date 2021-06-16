@@ -8,7 +8,7 @@ export default function IndexPage() {
         <MainLayout title="Säästu Autorent Tallinnas">
 
             <section className="home-main">
-            <h1>Save on <span className="red"> Car Rental </span> in Tallinn </h1>
+                <h1>Save on <span className="red"> Car Rental </span> in Tallinn </h1>
                 <p className="subtitle"><span className="uppercase red">RED</span> Autorent is an affordable car rental company in Tallinn, with prices starting at <span className="red bold"> €6.66 per day.</span></p>
                 <div className="advantages">
                     <div className="advantage">
@@ -39,7 +39,9 @@ export default function IndexPage() {
                 <div className="home-rentida__header">
                     <h2>How <span className="red">to Rent Cars</span></h2>
                     <p>We will process your application and you will receive a vehicle <br /><span className="red">within 10 minutes.</span></p>
-                    <button className="button home-rentida__button">Booking</button>
+                    <Link href="/autod">
+                        <button className="button home-rentida__button">Booking</button>
+                    </Link>
                 </div>
                 <div className="home-rentida__cards">
                     <div className="home-rentida__card">
@@ -65,12 +67,12 @@ export default function IndexPage() {
                     <p>Fast customer service is extremely important to us. Contact us in a way that suits you and we will answer you as soon as possible.</p>
                     <h4>Red Autorent OÜ</h4>
                     <span>Reg.nr: 14576442</span>
-                    <p><div className="icon icon__marker"></div>Akadeemia tee 6, Tallinn (Tallinna Tehnikaülikooli / TalTech vastas). Estonia, 12611</p>
-                    <h4><div className="icon icon__phone-red"></div><a href="tel:+3725535603">+3725535603</a></h4>
+                    <p><i className="icon icon__marker"></i>Akadeemia tee 6, Tallinn (Tallinna Tehnikaülikooli / TalTech vastas). Estonia, 12611</p>
+                    <h4><i className="icon icon__phone-red"></i><a href="tel:+3725535603">+3725535603</a></h4>
                     <span><a href="mail:redautorent@gmail.com">redautorent@gmail.com</a></span>
                 </div>
                 <div className="home-contacts__map">
-                <AddressMap />
+                    <AddressMap />
                 </div>
             </section>
         </MainLayout>

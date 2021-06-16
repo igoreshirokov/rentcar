@@ -6,37 +6,31 @@ import dynamic from 'next/dynamic'
 export default function Autod({ data }) {
     const ctx = useContext(StoreContext)
     const { lang } = ctx.state
+    const { catalog } = ctx.state
+
     const AutodPage = dynamic(() => import(`../components/Content/${lang}/Autod/AutodPage`))
 
-    const [cars, setCars] = useState(false)
     useEffect(async () => {
-        try {
-            const res = await fetch(BASE_URL + "api/catalog")
-            const json = await res.json()
-
-            setCars(json)
-        } catch (e) {
-            console.log(e)
+        if (data.status !== 200) {
+            try {
+                const res = await fetch(BASE_URL + "api/catalog")
+                const json = await res.json()
+    
+                ctx.setCatalog(json)
+            } catch (e) {
+                console.log(e)
+            }
+        } else {
+            ctx.setCatalog(data.cars)
         }
     }, [data])
-    if (data.status === 403) {
-
-    }
-
-    useEffect(() => {
-        if (data.status === 200) {
-            setCars(data.cars)
-        }
-    }, [data])
-
-
-    return <AutodPage cars={cars} />
+    
+    return <AutodPage />
 }
 
 Autod.getInitialProps = async (ctx) => {
     try {
-        const res = await fetch(process.env.BASE_URL + "api/catalog")
-        // const res = await fetch(process.env.BASE_URL + "/api/catalog")
+        const res = await fetch(BASE_URL + "api/catalog")
         const json = await res.json()
         return { data: { cars: json, status: 200 } }
     } catch (e) {

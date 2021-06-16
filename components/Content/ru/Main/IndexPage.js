@@ -39,7 +39,7 @@ export default function IndexPage() {
                 <div className="home-rentida__header">
                     <h2>Как <span className="red">арендовать автомобили</span></h2>
                     <p>Оформление и передача автомобиля занимает <br /><span className="red">не более 10 минут.</span></p>
-                    <button className="button home-rentida__button">Бронировать</button>
+                    <Link href="/autod"><button className="button home-rentida__button">Бронировать</button></Link>
                 </div>
                 <div className="home-rentida__cards">
                     <div className="home-rentida__card">
@@ -65,8 +65,8 @@ export default function IndexPage() {
                     <p>Для нас очень важно быстрое обслуживание клиентов. Свяжитесь с нами удобным для вас способом, и мы ответим вам как можно скорее.</p>
                     <h4>Red Autorent OÜ</h4>
                     <span>Reg.nr: 14576442</span>
-                    <p><div className="icon icon__marker"></div>Akadeemia tee 6, Tallinn (Tallinna Tehnikaülikooli / TalTech vastas). Estonia, 12611</p>
-                    <h4><div className="icon icon__phone-red"></div><a href="tel:+3725535603">+3725535603</a></h4>
+                    <p><i className="icon icon__marker"></i>Akadeemia tee 6, Tallinn (Tallinna Tehnikaülikooli / TalTech vastas). Estonia, 12611</p>
+                    <h4><i className="icon icon__phone-red"></i><a href="tel:+3725535603">+3725535603</a></h4>
                     <span><a href="mail:redautorent@gmail.com">redautorent@gmail.com</a></span>
                 </div>
                 <div className="home-contacts__map">

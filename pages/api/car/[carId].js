@@ -5,14 +5,14 @@ const prisma = new PrismaClient()
 
 export default async (req, res) => {
     const { method } = req
-    const { carId } = req.query
-
+    const { carId } = JSON.parse(req.query)
+    console.log(carId)
     switch (method) {
         case 'GET':
             // Get data from database with carId
             const car = await prisma.car.findUnique({
                 where: {
-                    id: parseInt(carId)
+                    model: carId
                 }
             });
             

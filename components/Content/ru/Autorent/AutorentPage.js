@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useRef, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { AutorendiCarCard } from './AutorendiCarCard'
 import { MainLayout } from '../../../Layouts/MainLayout'
@@ -8,143 +8,122 @@ import { PopupBroner } from './PopupBroner'
 import { AutoSelect } from './AutoSelect'
 import { BASE_URL } from '../../../Constants'
 import { FetchLoading } from '../../../ui/FetchLoading'
+import { FormContext } from '../../../../store/formContext'
 
 
-export default function AutorentPage({ data }) {
+export default function AutorentPage() {
     const router = useRouter()
-    const [formData, setFormData] = useState({
-        name: 0,
-        surname: '',
-        email: '',
-        address: '',
-        phone: 0,
-        zip: '',
-        auto: '',
-        dateStart: '',
-        timeStart: '',
-        dateStop: '',
-        timeStop: ''
-    })
+    const formContext = useContext(FormContext)
+    const formData = formContext.state
     const [errorMessage, setErrorMessage] = useState(false)
-    const [autoSelect, setAutoSelect] = useState(data.car)
+    const [loading, setLoading] = useState(false)
     const [popup, setPopup] = useState(false)
-    const [fetchLoading, setFetchLoading] = useState(false)
-    async function formRequest(data) {
+
+
+    async function sendOrder(data) {
         const request = await fetch(BASE_URL + 'api/broner', {
             method: 'POST',
             body: JSON.stringify(data)
         })
         const response = await request.json()
 
-        return response.status
+        return response
     }
 
     function formHundler() {
         if (formData['name'] && formData['phone']) {
-            setFetchLoading(true)
+            setLoading(true)
 
-            formRequest(formData)
+            sendOrder(formData)
                 .then(res => {
-                    setTimeout(() => {
-                        setFetchLoading(false)
+                    if (res.status == 'ok') {
+                        setLoading(false)
                         setPopup(!popup)
-                    }, 2000)
+                    } else {
+                        setLoading(false)
+                        setErrorMessage('На сервере произошла ошибка. Звоните по телефону')
+                    }
                 })
         } else {
-            setErrorMessage('Name or Phone is required')
+            setErrorMessage('Имя и телефон обязательно для заполнения')
         }
 
     }
 
     function closePopup() {
-        router.push('/')
-    }
-
-    function hundlerChange(e) {
-        e.preventDefault()
-        setFormData(prevState => {
-            let state = prevState
-            state[e.target.name] = e.target.value
-            return { ...state }
-        })
-
+        router.push('/kontakt')
     }
 
 
-    if (data.status === 200) {
-        return (
-            <MainLayout title="Autorendi päringu vorm">
-                {popup && <PopupBroner close={closePopup} />}
-                {fetchLoading && <FetchLoading />}
-                <section className="autorendi">
-                    <div className="breadcrumbs">
-                        <span className="breadcrumb-parent">Главная/</span>
-                        <span className="breadcrumb-parent">Автомобили/</span>
-                        <span className="breadcrumb-current">Форма запроса</span>
 
+    return (
+        <MainLayout title="Прокат автомобилей">
+            {popup && <PopupBroner close={closePopup} />}
+            {errorMessage && <span className="red bold">{errorMessage}</span>}
+            {loading && <FetchLoading />}
+            <section className="autorendi">
+                <div className="breadcrumbs">
+                    <span className="breadcrumb-parent">Главная/</span>
+                    <span className="breadcrumb-parent">Автомобили/</span>
+                    <span className="breadcrumb-current">Форма запроса</span>
+                </div>
+                <h2><span className="red">Форма</span> запроса автомобиля</h2>
+                <p>Заполните заявку и наш менеджер свяжется с вами в течении <span className="red">30 минут</span></p>
+            </section>
+            <section className="autorendi-broner">
+                <form className="form autorendi-form">
+                    <span className="bold">Контактная информация</span>
+                    <div className="form-person">
+                        <label>Имя:
+                         <input type="text" name="name" onChange={(e) => formContext.setForm('SET_NAME', e.target.value)} value={formContext.name} placeholder="Alex" required></input>
+                        </label>
+                        <label>Фамилия:
+                         <input type="text" name="surname" placeholder="Petrov" onChange={(e) => formContext.setForm('SET_SURNAME', e.target.value)} value={formContext.surname}></input>
+                        </label>
+                        <label>E-mail адрес:
+                         <input type="text" name="email" placeholder="petrov@gmail.com" onChange={(e) => formContext.setForm('SET_EMAIL', e.target.value)} value={formContext.email}></input>
+                        </label>
+                        <label>Домашний адрес:
+                         <input type="text" name="address" placeholder="Vilnus, Krony 44" onChange={(e) => formContext.setForm('SET_ADDRESS', e.target.value)} value={formContext.address}></input>
+                        </label>
+                        <label>Номер телефона:
+                         <input type="text" name="phone" placeholder="+ XXX-XX-XXX-XX-XX" onChange={(e) => formContext.setForm('SET_PHONE', e.target.value)} value={formContext.phone} required></input>
+                        </label>
+                        <label>Личный код:
+                         <input type="text" name="zip" placeholder="ХХХ" onChange={(e) => formContext.setForm('SET_PERSONALID', e.target.value)} value={formContext.personalid}></input>
+                        </label>
+                        <label className="auto-select">Автомобиль:
+                            <AutoSelect type={'SET_AUTO'} />
+                        </label>
                     </div>
-                    <h2><span className="red">Форма</span> запроса автомобиля</h2>
-                    <p>Заполните заявку и наш менеджер свяжется с вами в течении <span className="red">30 минут</span></p>
-                </section>
-                <section className="autorendi-broner">
+                    <span className="bold">Период аренды</span>
+                    <div className="form-date">
+                        <label>Дата начала:
+                            <Calendar type={'SET_STARTDATE'} lang={'ru'} />
+                        </label>
+                        <label>Время начала:
+                            <Time type={'SET_STARTTIME'} />
+                        </label>
+                        <label>Дата возврата:
+                            <Calendar type={'SET_STOPDATE'} lang={'ru'} />
+                        </label>
+                        <label>Время возврата:
+                            <Time type={'SET_STOPTIME'} />
+                        </label>
+                        <label className="additional-information">Дополнительная информация:
+                            <textarea name="additional" placeholder="Дополнительная информация" onChange={(e) => formContext.setForm('SET_ADDITIONAL', e.target.value)} value={formContext.additional}></textarea>
+                        </label>
+                    </div>
+                </form>
+                <div className="autorendi-carcard">
+                    <AutorendiCarCard />
+                    <button onClick={formHundler} className="button">Бронировать</button>
                     {errorMessage && <span className="red bold">{errorMessage}</span>}
-                    <form onChange={hundlerChange} className="form autorendi-form">
-                        <div className="form-person">
-                            <label>Имя:
-                        <input type="text" name="name" placeholder="Alex" required></input>
-                            </label>
-                            <label>Фамилия:
-                        <input type="text" name="surname" placeholder="Petrov"></input>
-                            </label>
-                            <label>E-mail адрес:
-                        <input type="text" name="email" placeholder="petrov@gmail.com"></input>
-                            </label>
-                            <label>Домашний адрес:
-                        <input type="text" name="address" placeholder="Vilnus, Krony 44"></input>
-                            </label>
-                            <label>Номер телефона:
-                        <input type="text" name="phone" placeholder="+ XXX-XX-XXX-XX-XX" required></input>
-                            </label>
-                            <label>Личный код:
-                        <input type="text" name="zip" placeholder="ХХХ"></input>
-                            </label>
-                        </div>
-                        <div className="form-auto">
-                            <label>Автомобиль:
-                                <AutoSelect />
-                            </label>
+                </div>
+            </section>
+        </MainLayout>
+    )
 
-                        </div>
-                        <div className="form-date">
-                            <label>Период аренды:</label>
-                            <label>Дата начала
-                        <Calendar lang={'ru'} />
-                            </label>
-                            <label>
-                        <Time />
-                            </label>
-                            <label>Дата возврата
-                        <Calendar />
-                            </label>
-                            <label>
-                        <Time />
-                            </label>
-                        </div>
-                        <div className="form-comment">
-                            <label>Доп. Информация:
-                                <textarea name="comment" placeholder="Дополнительная информация"></textarea>
-                            </label>
-                        </div>
-                    </form>
-                    <div className="autorendi-carcard">
-                        <AutorendiCarCard car={data.car} />
-                        {errorMessage && <span className="red bold">{errorMessage}</span>}
-                        <button onClick={formHundler} className="button">Broneeri</button>
-                    </div>
-                </section>
-            </MainLayout>
-        )
-    }
 
 
 }

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
 import Link from "next/link"
 import { StoreContext } from '../store/store'
+import { LINKS } from './Constants'
 
 
-
-export default function Footer () {
+export default function Footer() {
     const ctx = useContext(StoreContext)
     const { lang } = ctx.state
 
@@ -34,54 +34,53 @@ export default function Footer () {
 
     return (
         <footer>
-                <section className="footer">
-                    <div className="footer-elements">
-                        <div className="footer-logo">
-                            <img className="logo" src="/images/logo-white.svg" />
-                        </div>
-                        <div className="footer-menu">
-                            <ul>
-                                {menuItems.map(item => <li key={item.href}><Link href={item.href}><a>{item.title}</a></Link></li>)}
-                            </ul>
-                        </div>
-                        <ul className="footer-address">
-                            <h4>Red Autorent OÜ</h4>
-                            <li>Reg.nr: 14576442</li>
-                            
-                            <li>Akadeemia tee 6, Tallinn Estonia, 12611</li>
-                        </ul>
-                        <ul className="footer-bank">
-                            <h4>Swedbank</h4>
-                            <li><span className="bold">IBAN</span> EE812200221070224653</li>
-                            <li><span className="bold">SWIFT</span> HABAEE2X</li>
-                        </ul>
-                        <ul className="footer-contacts">
-                            <li className="footer__email">
-                                <a href="#">
-                                    {/* <div className="icon icon__phone"></div> */}
-                                    <div className="email">redautorent@gmail.com</div>
-                                </a>
-                            </li>
-                            <li className="footer__phone">
-                                <a href="#">
-                                    <div className="icon icon__phone"></div>
-                                    <div className="phone-number">+372 5535603</div>
-                                </a>
-                            </li>
-                            <li className="footer__social">
-                                <a href="#">
-                                    <div className="icon icon__facebook"></div>
-                                </a>
-                                <a href="#">
-                                    <div className="icon icon__instagram"></div>
-                                </a>
-                            </li>
+            <section className="footer">
+                <div className="footer-elements">
+                    <div className="footer-logo">
+                        <img className="logo" src="/images/logo-white.svg" />
+                    </div>
+                    <div className="footer-menu">
+                        <ul>
+                            {menuItems.map(item => <li key={item.href}><Link href={item.href}><a>{item.title}</a></Link></li>)}
                         </ul>
                     </div>
-                    <div className="copyright">
-                        © Red Autorent OÜ, 2021
+                    <ul className="footer-address">
+                        <h4>Red Autorent OÜ</h4>
+                        <li>Reg.nr: 14576442</li>
+
+                        <li><a href={LINKS.mapAddress} target="_blank">Akadeemia tee 6, Tallinn Estonia, 12611</a></li>
+                    </ul>
+                    <ul className="footer-bank">
+                        <h4>Swedbank</h4>
+                        <li><span className="bold">IBAN</span> EE812200221070224653</li>
+                        <li><span className="bold">SWIFT</span> HABAEE2X</li>
+                    </ul>
+                    <ul className="footer-contacts">
+                        <li className="footer__email">
+                            <a href={LINKS.email}>
+                                <div className="email">redautorent@gmail.com</div>
+                            </a>
+                        </li>
+                        <li className="footer__phone">
+                            <a href={LINKS.phone}>
+                                <div className="icon icon__phone"></div>
+                                <div className="phone-number">+372 5535603</div>
+                            </a>
+                        </li>
+                        <li className="footer__social">
+                            <a href={LINKS.facebook}>
+                                <div className="icon icon__facebook"></div>
+                            </a>
+                            <a href={LINKS.instagram}>
+                                <div className="icon icon__instagram"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div className="copyright">
+                    © Red Autorent OÜ, 2021
                     </div>
-                </section>
-            </footer>
+            </section>
+        </footer>
     )
 }

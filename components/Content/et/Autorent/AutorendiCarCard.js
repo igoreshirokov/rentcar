@@ -1,6 +1,26 @@
+import { FormContext } from '../../../../store/formContext'
+import { StoreContext } from '../../../../store/store'
+import { useContext, useState, useEffect } from 'react'
+import { BASE_URL } from '../../../Constants'
 
-export const AutorendiCarCard = ({ car }) => {
+export const AutorendiCarCard = () => {
+    const ctx = useContext(StoreContext)
+    const { catalog } = ctx.state
+    const formContext = useContext(FormContext)
+    const { auto } = formContext.state
+    const [car, setCar] = useState(false)
+    useEffect(() => {
+        catalog && catalog.forEach(el => {
+            if (el.model == auto) {
+                setCar(el)
+            }
+        })
+    }, [auto])
+    if (!car) {
+        return <div className="car__card">Loading...</div>
+    }
     const image = JSON.parse(car.Images)[0]
+
     return (
         <div className="car__card">
             <img src={image} />

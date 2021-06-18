@@ -14,7 +14,8 @@ server.js
 /out/
 
 # production
-/old
+
+
 /build
 
 # misc

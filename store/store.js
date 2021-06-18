@@ -1,15 +1,40 @@
-import { useState, useEffect, createContext } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useCookies } from 'react-cookie'
 
-export const CatalogContext = createContext(false)
+export const StoreContext = React.createContext()
 
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "SET_CATALOG":
+            return { ...state, catalog: action.payload }
+        case "CHANGE_LANG":
+            return { ...state, lang: action.payload }
 
-export const CatalogContextProvider = ({ children }) => {
+        default:
+            return { state }
+    }
+}
 
+export const StoreContextProvider = ({ children }) => {
+    const [cookies, setCookie] = useCookies(['lang'])
 
-
+    const defaultContext = {
+        lang: cookies.lang || 'et',
+        catalog: false
+    }
+    const [state, dispatch] = React.useReducer(reducer, defaultContext)
+    const setLang = (lang) => {
+        setCookie('lang', lang, { path: '/'});
+        dispatch({type: 'CHANGE_LANG', payload: lang});
+    }
+    const setCatalog = (cars) => dispatch({ type: 'SET_CATALOG', payload: cars}) 
     return (
-        <CatalogContext.Provider value="">
+        <StoreContext.Provider value={{
+            state,
+            setLang,
+            setCatalog
+        }}>
             {children}
-        </CatalogContext.Provider>
+        </StoreContext.Provider>
     )
 }

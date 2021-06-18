@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react'
 import { BASE_URL } from '../components/Constants'
 import { useRouter } from "next/router"
 import { signIn, signout, signOut, useSession } from "next-auth/client"
-import { PopupSettings } from '../components/content/admin/PopupSettings'
-
+import { PopupSettings } from '../components/Content/Admin/PopupSettings'
+import { FetchLoading } from '../components/ui/FetchLoading'
 
 export default function Admin({ data }) {
     const [cars, setCars] = useState(false)
@@ -15,7 +15,7 @@ export default function Admin({ data }) {
     const [settingsOn, setSettingsOn] = useState(false)
     const router = useRouter()
 
-    function settingsHundler () {
+    function settingsHundler() {
         setSettingsOn(!settingsOn)
     }
 
@@ -43,7 +43,7 @@ export default function Admin({ data }) {
     }, [data])
 
     if (loading) {
-        return <p>Loading...</p>
+        return <FetchLoading />
     }
 
     function toLoginPage() {
@@ -76,7 +76,7 @@ export default function Admin({ data }) {
         <MainLayout title="Home">
             {!session ? <p>Need authorization</p> : (
                 <>
-                {settingsOn && <PopupSettings typeSubmit="create" car={defaultCar} close={settingsHundler} />}
+                    {settingsOn && <PopupSettings typeSubmit="create" car={defaultCar} close={settingsHundler} />}
                     <section className="autod-breadcrumbs">
                         <div className="breadcrumbs">
                             <p>
@@ -97,7 +97,7 @@ export default function Admin({ data }) {
                     <section className="autod-cars">
 
                         {cars === false ? (
-                            <div className="loading">Loading...</div>
+                            <FetchLoading />
                         ) : cars.map(car => {
                             return (
                                 <AdminCarCard key={car.id.toString()} car={car} />

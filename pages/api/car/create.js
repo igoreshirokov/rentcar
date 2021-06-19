@@ -6,6 +6,14 @@ import base64Img from 'base64-img'
 
 const prisma = new PrismaClient()
 
+export const config = {
+    api: {
+        bodyParser: {
+            sizeLimit: '20mb',
+        },
+    },
+}
+
 function saveFile(file) {
     const fileName = Date.now()
     const uploadPath = path.join(process.cwd(), 'public', 'upload');

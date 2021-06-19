@@ -5,7 +5,8 @@ server.js
 /node_modules
 /.pnp
 .pnp.js
-
+# pm2 settings file
+ecosystem.congfig.js
 # testing
 /coverage
 
@@ -14,6 +15,8 @@ server.js
 /out/
 
 # production
+
+
 /build
 
 # misc

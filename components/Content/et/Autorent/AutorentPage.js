@@ -9,6 +9,7 @@ import { AutoSelect } from './AutoSelect'
 import { BASE_URL } from '../../../Constants'
 import { FetchLoading } from '../../../ui/FetchLoading'
 import { FormContext } from '../../../../store/formContext'
+import Link from 'next/link'
 
 
 export default function AutorentPage() {
@@ -57,14 +58,14 @@ export default function AutorentPage() {
 
 
     return (
-        <MainLayout title="Autorent">
+        <MainLayout title="Autorent - taotlus">
             {popup && <PopupBroner close={closePopup} />}
             {errorMessage && <span className="red bold">{errorMessage}</span>}
             {loading && <FetchLoading />}
             <section className="autorendi">
                 <div className="breadcrumbs">
-                    <span className="breadcrumb-parent">Peamine/</span>
-                    <span className="breadcrumb-parent">Autod/</span>
+                    <span className="breadcrumb-parent"><Link href="/"><a>Peamine/</a></Link></span>
+                    <span className="breadcrumb-parent"><Link href="/autod"><a>Autod/</a></Link></span>
                     <span className="breadcrumb-current">Autorendi päringu vorm</span>
 
                 </div>

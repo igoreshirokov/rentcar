@@ -3,6 +3,7 @@ import { MainLayout } from '../../../Layouts/MainLayout.js'
 import { FetchLoading } from '../../../ui/FetchLoading'
 import { StoreContext } from '../../../../store/store'
 import { useContext } from 'react'
+import Link from 'next/link'
 
 export default function AutodPage() {
     const ctx = useContext(StoreContext)
@@ -10,11 +11,11 @@ export default function AutodPage() {
 
 
     return (
-        <MainLayout title="Cars">
+        <MainLayout title="Autod">
             <section className="autod-breadcrumbs">
                 <div className="breadcrumbs">
                     <p>
-                        <span className="breadcrumb-parent">Peamine/</span>
+                        <span className="breadcrumb-parent"><Link href="/"><a>Peamine/</a></Link></span>
                         <span className="breadcrumb-current">Autod</span>
                     </p>
                 </div>

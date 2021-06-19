@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react'
 import { BASE_URL } from '../components/Constants'
 import { useRouter } from "next/router"
 import { signIn, signout, signOut, useSession } from "next-auth/client"
-import { PopupSettings } from '../components/content/admin/PopupSettings'
-
+import { PopupSettings } from '../components/Content/Admin/PopupSettings'
 import { FetchLoading } from '../components/ui/FetchLoading'
+
 export default function Admin({ data }) {
     const [cars, setCars] = useState(false)
     const [session, loading] = useSession()

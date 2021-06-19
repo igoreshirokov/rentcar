@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { StoreContext } from '../../../store/store'
+import { BASE_URL } from '../../Constants'
 
 
 export const PopupSettings = ({ typeSubmit, close, car }) => {
@@ -81,7 +82,7 @@ export const PopupSettings = ({ typeSubmit, close, car }) => {
 
 
     function hundleSubmit() {
-        fetch(`http://nginxtest/api/car/${typeSubmit}`, {
+        fetch(`${BASE_URL}api/car/${typeSubmit}`, {
             method: 'PUT',
             body: JSON.stringify(settings)
         }).then(res => {
@@ -173,7 +174,7 @@ export const PopupSettings = ({ typeSubmit, close, car }) => {
                             <input type="number" name="Day" value={settings.Day} />
                             </label>
                             <label>
-                            {lang == 'et' ? '1 Päev €' : lang == 'en' ? '1 day €' : '1 день €'}
+                            {lang == 'et' ? '1-6 Päev €' : lang == 'en' ? '1-6 day €' : '1-6 дней €'}
                             <input type="number" name="Sixday" value={settings.Sixday} />
                             </label>
                             <label>

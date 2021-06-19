@@ -9,6 +9,7 @@ import { AutoSelect } from './AutoSelect'
 import { BASE_URL } from '../../../Constants'
 import { FetchLoading } from '../../../ui/FetchLoading'
 import { FormContext } from '../../../../store/formContext'
+import Link from 'next/link'
 
 
 export default function AutorentPage() {
@@ -58,14 +59,14 @@ export default function AutorentPage() {
 
 
     return (
-        <MainLayout title="Autorent">
+        <MainLayout title="Autorent - request">
             {popup && <PopupBroner close={closePopup} />}
             {errorMessage && <span className="red bold">{errorMessage}</span>}
             {loading && <FetchLoading />}
             <section className="autorendi">
                 <div className="breadcrumbs">
-                    <span className="breadcrumb-parent">Main/</span>
-                    <span className="breadcrumb-parent">Cars/</span>
+                    <span className="breadcrumb-parent"><Link href="/"><a>Main/</a></Link></span>
+                    <span className="breadcrumb-parent"><Link href="/autod"><a>Cars/</a></Link></span>
                     <span className="breadcrumb-current">Rental Enquiry Form</span>
 
                 </div>

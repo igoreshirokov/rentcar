@@ -2,7 +2,7 @@ import { MainLayout } from '../../../Layouts/MainLayout'
 
 export default function RenditingimusedPage() {
     return (
-        <MainLayout title={'Renditingimused'}>
+        <MainLayout title={'Rental conditions'}>
             <section className="autod-breadcrumbs">
                 <div className="breadcrumbs">
                     <p>

@@ -2,7 +2,7 @@ import { MainLayout } from "../../../Layouts/MainLayout";
 import AddressMap from '../../../ui/AddressMap'
 export default function ContactPage() {
     return (
-        <MainLayout title={'Kontakt'}>
+        <MainLayout title={'Контакты'}>
             <section className="home-contacts">
                 <div className="home-contacts__info">
                     <h2>Свяжитесь <span className="red">с нами</span></h2>

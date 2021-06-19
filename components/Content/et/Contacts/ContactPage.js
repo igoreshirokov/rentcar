@@ -3,7 +3,7 @@ import AddressMap from '../../../ui/AddressMap'
 
 export default function ContactPage ( ) {
     return (
-        <MainLayout title={'Kontakt'}>
+        <MainLayout title={'Kontaktid'}>
             <section className="home-contacts">
                 <div className="home-contacts__info">
                     <h2>Võtke <span className="red">meiega ühendust</span></h2>

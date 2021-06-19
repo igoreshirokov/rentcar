@@ -9,6 +9,7 @@ import { AutoSelect } from './AutoSelect'
 import { BASE_URL } from '../../../Constants'
 import { FetchLoading } from '../../../ui/FetchLoading'
 import { FormContext } from '../../../../store/formContext'
+import Link from 'next/link'
 
 
 export default function AutorentPage() {
@@ -57,14 +58,14 @@ export default function AutorentPage() {
 
 
     return (
-        <MainLayout title="Прокат автомобилей">
+        <MainLayout title="Прокат автомобилей - заявка">
             {popup && <PopupBroner close={closePopup} />}
             {errorMessage && <span className="red bold">{errorMessage}</span>}
             {loading && <FetchLoading />}
             <section className="autorendi">
                 <div className="breadcrumbs">
-                    <span className="breadcrumb-parent">Главная/</span>
-                    <span className="breadcrumb-parent">Автомобили/</span>
+                    <span className="breadcrumb-parent"><Link href="/"><a>Главная/</a></Link></span>
+                    <span className="breadcrumb-parent"><Link href="/autod"><a>Автомобили/</a></Link></span>
                     <span className="breadcrumb-current">Форма запроса</span>
                 </div>
                 <h2><span className="red">Форма</span> запроса автомобиля</h2>

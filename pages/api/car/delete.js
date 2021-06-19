@@ -8,18 +8,20 @@ import { redirect } from "next/dist/next-server/server/api-utils"
 const prisma = new PrismaClient()
 
 export default async (req, res) => {
+
     const session = getSession(req)
     if (session) {
         const { method, body } = req
-        if (method == 'PUT') {
+
+        if (method == 'DELETE') {
             const data = JSON.parse(body);
-    
+
             const deleteCar = await prisma.car.delete({
                 where: {
                     id: data.id
                 }
             });
-    
+
             res.status(200).json(deleteCar)
         }
     } else {

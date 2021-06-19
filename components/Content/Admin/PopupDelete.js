@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
-
+import { BASE_URL } from '../../Constants'
 export const PopupDelete = ({ car, close }) => {
     const router = useRouter()
 
     async function deleteCar() {
         const carId = { id: car['id'] }
-        const req = await fetch('http://nginxtest/api/car/delete', {
-            method: 'PUT',
+        const req = await fetch(`${BASE_URL}api/car/delete`, {
+            method: 'DELETE',
             body: JSON.stringify(carId)
         });
         const res = await req.json()

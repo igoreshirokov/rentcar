@@ -44,7 +44,7 @@ return (
         {!catalog ? <p>Загрузка...</p> : (
             <select onChange={hundlerChange}>
                 {catalog.map(auto => {
-                    if (ctxForm.state.auto == auto.id) {
+                    if (ctxForm.state.auto == auto.model) {
                         return <option key={auto.model} data-id={auto.id} value={auto.model} selected>{auto.model}</option>
                     }
                     return (

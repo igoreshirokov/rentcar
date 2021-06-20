@@ -1,5 +1,6 @@
 #menu__toggle {
   opacity: 0;
+  position: absolute;
 }
 
 #menu__toggle:checked ~ .menu__btn > span {

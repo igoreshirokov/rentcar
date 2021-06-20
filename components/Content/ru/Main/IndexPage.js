@@ -8,7 +8,7 @@ export default function IndexPage() {
         <MainLayout title="Säästu Autorent Tallinnas">
 
             <section className="home-main">
-            <h1>Сэкономьте на <span className="red"> аренде автомобилей </span>в Таллинне</h1>
+            <h1>Экономьте на <span className="red"> аренде авто </span>в Таллинне</h1>
                 <p className="subtitle"><span className="uppercase red">RED</span> Autorent - это недорогая аренда экономичных автомобилей в Таллинне по доступным ценам, начиная от <span className="red bold">6.66 евро в сутки.</span></p>
                 <div className="advantages">
                     <div className="advantage">

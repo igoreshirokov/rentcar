@@ -16,7 +16,8 @@ export const CarSlider = ({ images }) => {
                 className="slider"
                 onSwiper={setSlider}
                 pagination={true}
-                slidesPerView={1.5}
+                slidesPerView={'auto'}
+                centeredSlides
                 breakpoints={{
                     576: {
                         slidesPerView: 1,

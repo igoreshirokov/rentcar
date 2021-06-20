@@ -56,7 +56,7 @@ export default function Header() {
         // <div className="header">
         <section className="header">
             <div className="header-logo">
-                <img className="logo" src="/images/logo.svg" />
+                <Link href="/"><a><img className="logo" src="/images/logo.svg" /></a></Link>
             </div>
             { isTabletOrMobile ?
                 <>

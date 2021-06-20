@@ -6,8 +6,8 @@ export default function ContactPage ( ) {
         <MainLayout title={'Contacts'}>
             <section className="home-contacts">
                 <div className="home-contacts__info">
-                <h2>Võtke <span className="red">meiega ühendust</span></h2>
-                    <p>Kiire klienditeenindus on meie jaoks ülimalt oluline. Võtke meiega endale sobival viisil ühendust ja vastame Teile esimesel võimalusel.</p>
+                <h2>Contact <span className="red">us</span></h2>
+                    <p>Fast customer service is extremely important to us. Contact us in a way that suits you and we will answer you as soon as possible.</p>
                     <h4>Red Autorent OÜ</h4>
                     <span>Reg.nr: 14576442</span>
                     <p><i className="icon icon__marker"></i>Akadeemia tee 6, Tallinn (Tallinna Tehnikaülikooli / TalTech vastas). Estonia, 12611</p>

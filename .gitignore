@@ -9,7 +9,7 @@ server.js
 ecosystem.congfig.js
 # testing
 /coverage
-
+/components/Constants.js
 # next.js
 /.next/
 /out/

@@ -58,9 +58,11 @@
 .car-slider
     position: relative
     cursor: pointer
-    img
-        width: 50%
-
+    // img
+        // width: 50%
+        // object-fit: cover
+        // height: auto
+    
 .car-slider__thumbs
     position: absolute
     top: 0
@@ -92,3 +94,38 @@
         box-shadow: 0 0 20px 0 $cardShadow
         img
             width: 100%
+
+
+
+.slider
+    width: 50%
+    margin: 0
+.car-slide
+    width: 100%
+    height: 230px
+
+
+.car-slider__thumbs
+    height: 100%
+    width: 50%
+.car-slider__thumb
+    width: 100%
+    height: 120px
+    position: relative
+    img
+        width: 100%
+
+@media screen and ( max-width: 1200px )
+    .car-slide
+        height: 220px
+    .car-slider__thumb
+        height: 110px
+@media screen and ( max-width: 578px )
+    .slider
+        width: 100%
+    .car-slide
+        width: calc(100% - 30px)
+        height: calc(100vw * 0.72)
+        max-height: 433px
+    .car-slider__thumb
+        display: none

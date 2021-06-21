@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination } from 'swiper/core'
 import { useState, useEffect } from 'react'
 import MediaQuery from 'react-responsive'
+import Image from 'next/image'
 
 SwiperCore.use([Pagination])
 
@@ -29,7 +30,9 @@ export const CarSlider = ({ images }) => {
                 {images.map(image => {
                     return (
                         <SwiperSlide key={image} className="car-slide">
-                            <img src={image} />
+                            {/* <img className="active-slide-image" src={image} /> */}
+                            {/* <Image width={"100%"} height={"100"} src={image} /> */}
+                            <Image layout="fill" src={image} />
                         </SwiperSlide>
                     )
                 })}
@@ -42,7 +45,7 @@ export const CarSlider = ({ images }) => {
                         }
                         return (
                             <div key={img} onClick={() => slider.slideTo(index)} className="car-slider__thumb">
-                                <img src={img} />
+                                <Image layout="fill" src={img} />
                             </div>
                         )
                     })}

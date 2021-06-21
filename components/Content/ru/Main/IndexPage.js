@@ -55,7 +55,7 @@ export default function IndexPage() {
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i3.svg" />
                         <h4>Депозит</h4>
-                        <p><span className="home-rentida__card-number bold">3</span>Иметь залоговую сумму в размере <span className="red">200 €</span></p>
+                        <p><span className="home-rentida__card-number bold">3</span>Иметь залоговую сумму в размере <span className="red">200€</span></p>
                     </div>
                 </div>
             </section>

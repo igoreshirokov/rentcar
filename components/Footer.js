@@ -68,10 +68,10 @@ export default function Footer() {
                             </a>
                         </li>
                         <li className="footer__social">
-                            <a href={LINKS.facebook}>
+                            <a href={LINKS.facebook} target="_blank">
                                 <div className="icon icon__facebook"></div>
                             </a>
-                            <a href={LINKS.instagram}>
+                            <a href={LINKS.instagram} target="_blank">
                                 <div className="icon icon__instagram"></div>
                             </a>
                         </li>

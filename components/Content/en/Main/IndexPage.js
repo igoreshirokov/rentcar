@@ -47,17 +47,17 @@ export default function IndexPage() {
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i1.svg" />
                         <h4>Driving license</h4>
-                        <p><span className="home-rentida__card-number bold">01</span>Valid driving license for at least <span className="red"> 2 years</span></p>
+                        <p><span className="home-rentida__card-number bold">1</span>Valid driving license for at least <span className="red"> 2 years</span></p>
                     </div>
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i2.svg" />
                         <h4>Request</h4>
-                        <p><span className="home-rentida__card-number bold">02</span>Let us know your desired dates</p>
+                        <p><span className="home-rentida__card-number bold">2</span>Let us know your desired dates</p>
                     </div>
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i3.svg" />
                         <h4>Deposit</h4>
-                        <p><span className="home-rentida__card-number bold">03</span>Make sure to be able to provide a security deposit of <span className="red">200€</span></p>
+                        <p><span className="home-rentida__card-number bold">3</span>Make sure to be able to provide a security deposit of <span className="red">200€</span></p>
                     </div>
                 </div>
             </section>

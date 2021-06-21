@@ -20,7 +20,7 @@ export default function Header() {
         },
         {
             href: "/autod",
-            title: lang == 'et' ? "autod" : lang == 'en' ? 'cars' : lang == 'ru' && 'авто',
+            title: lang == 'et' ? "autod" : lang == 'en' ? 'vehicles' : lang == 'ru' && 'автомобили',
             active: 0
         },
         {

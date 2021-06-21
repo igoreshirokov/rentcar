@@ -46,17 +46,17 @@ export default function IndexPage() {
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i1.svg" />
                         <h4>Juhiluba</h4>
-                        <p><span className="home-rentida__card-number bold">01</span>Kehtiv juhiluba vähemalt <span className="red">2 aastat</span></p>
+                        <p><span className="home-rentida__card-number bold">1</span>Kehtiv juhiluba vähemalt <span className="red">2 aastat</span></p>
                     </div>
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i2.svg" />
                         <h4>Teata</h4>
-                        <p><span className="home-rentida__card-number bold">02</span>Rendiperioodi teatamine</p>
+                        <p><span className="home-rentida__card-number bold">2</span>Rendiperioodi teatamine</p>
                     </div>
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i3.svg" />
                         <h4>Jäta tagatisraha</h4>
-                        <p><span className="home-rentida__card-number bold">03</span>Tagatisraha summas <span className="red">200€</span></p>
+                        <p><span className="home-rentida__card-number bold">3</span>Tagatisraha summas <span className="red">200€</span></p>
                     </div>
                 </div>
             </section>

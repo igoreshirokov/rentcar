@@ -8,7 +8,7 @@ export default function IndexPage() {
         <MainLayout title="Säästu Autorent Tallinnas">
 
             <section className="home-main">
-            <h1>Экономьте на <span className="red"> аренде авто </span>в Таллинне</h1>
+            <h1>Экономьте на <span className="red"> аренде автомобилей </span>в Таллинне</h1>
                 <p className="subtitle"><span className="uppercase red">RED</span> Autorent - это недорогая аренда экономичных автомобилей в Таллинне по доступным ценам, начиная от <span className="red bold">6.66 евро в сутки.</span></p>
                 <div className="advantages">
                     <div className="advantage">
@@ -45,17 +45,17 @@ export default function IndexPage() {
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i1.svg" />
                         <h4>Водительские права</h4>
-                        <p><span className="home-rentida__card-number bold">01</span>Стаж вождения не менее <span className="red">2 лет</span></p>
+                        <p><span className="home-rentida__card-number bold">1</span>Стаж вождения не менее <span className="red">2 лет</span></p>
                     </div>
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i2.svg" />
                         <h4>Заявка</h4>
-                        <p><span className="home-rentida__card-number bold">02</span>Сообщить период аренды</p>
+                        <p><span className="home-rentida__card-number bold">2</span>Сообщить период аренды</p>
                     </div>
                     <div className="home-rentida__card">
                         <img src="/images/content/home/icons/p1b3i3.svg" />
                         <h4>Депозит</h4>
-                        <p><span className="home-rentida__card-number bold">03</span>Иметь залоговую сумму в размере <span className="red">200 €</span></p>
+                        <p><span className="home-rentida__card-number bold">3</span>Иметь залоговую сумму в размере <span className="red">200 €</span></p>
                     </div>
                 </div>
             </section>

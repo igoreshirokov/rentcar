@@ -52,7 +52,7 @@ export const AutorendiCarCard = () => {
                     </li>
                     <li>
                         <span className="parametr-name">Kütusekulu</span>
-                        <span className="bold parametr-value">{car['Consumption']} Liitrit/100 km</span>
+                        <span className="bold parametr-value">{car['Consumption']}{car['Fuel'] !== 'Gas' ? ' l' : ' €'}/100 km</span>
                     </li>
                 </ul>
                 <ul className="parameters rent-parameters">

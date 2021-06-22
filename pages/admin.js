@@ -73,7 +73,7 @@ export default function Admin({ data }) {
     }
 
     return (
-        <MainLayout title="Home">
+        <MainLayout admin={true} title="Administrator">
             {!session ? <p>Need authorization</p> : (
                 <>
                     {settingsOn && <PopupSettings typeSubmit="create" car={defaultCar} close={settingsHundler} />}

@@ -9,6 +9,13 @@ export const AdminCarCard = ({ car }) => {
     const [settingsOn, setSettingsOn] = useState(false)
     const [deletePopup, setDeletePopup] = useState(false)
 
+    if (settingsOn) {
+        document.querySelector('body').classList.add('overflow-hidden')
+    } else {
+        document.querySelector('body').classList.remove('overflow-hidden')
+
+    }
+
     function settingsHundler() {
         setSettingsOn(!settingsOn)
     }
@@ -54,7 +61,7 @@ export const AdminCarCard = ({ car }) => {
                     </li>
                     <li>
                         <span className="parametr-name">Kütusekulu</span>
-                        <span className="bold parametr-value">{car['Consumption']} Liitrit/100 km</span>
+                        <span className="bold parametr-value">{car['Consumption']}{car['Fuel'] !== 'Gas' ? ' l' : ' €'}/100 km</span>
                     </li>
                 </ul>
                 <ul className="parameters rent-parameters">

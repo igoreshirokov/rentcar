@@ -41,7 +41,7 @@ export const CarCard = ({ car }) => {
                     </li>
                     <li>
                         <span className="parametr-name">Расход топлива</span>
-                        <span className="bold parametr-value">{car['Consumption']} Литров/100 км</span>
+                        <span className="bold parametr-value">{car['Consumption']}{car['Fuel'] !== 'Gas' ? ' л' : ' €'}/100 км</span>
                     </li>
                 </ul>
                 <ul className="parameters rent-parameters">

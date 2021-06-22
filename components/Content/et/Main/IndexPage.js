@@ -1,6 +1,9 @@
 import { MainLayout } from '../../../Layouts/MainLayout.js'
-import AddressMap from '../../../ui/AddressMap'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+import { ComponentLoading } from '../../../ui/FetchLoading.js'
+
+const AddressMap = dynamic(() => import('../../../ui/AddressMap'), { loading: () => <ComponentLoading /> })
 
 export default function IndexPage() {
     return (

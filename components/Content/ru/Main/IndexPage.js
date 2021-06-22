@@ -1,6 +1,9 @@
 import { MainLayout } from '../../../Layouts/MainLayout.js'
-import AddressMap from '../../../ui/AddressMap'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+import { ComponentLoading } from '../../../ui/FetchLoading.js'
+
+const AddressMap = dynamic(() => import('../../../ui/AddressMap'), { loading: () => <ComponentLoading /> })
 
 export default function IndexPage() {
     return (
@@ -8,7 +11,7 @@ export default function IndexPage() {
         <MainLayout title="Säästu Autorent Tallinnas">
 
             <section className="home-main">
-            <h1>Экономьте на <span className="red"> аренде автомобилей </span>в Таллинне</h1>
+                <h1>Экономьте на <span className="red"> аренде автомобилей </span>в Таллинне</h1>
                 <p className="subtitle"><span className="uppercase red">RED</span> Autorent - это недорогая аренда экономичных автомобилей в Таллинне по доступным ценам, начиная от <span className="red bold">6.66 евро в сутки.</span></p>
                 <div className="advantages">
                     <div className="advantage">
@@ -70,7 +73,7 @@ export default function IndexPage() {
                     <span><a href="mail:redautorent@gmail.com">redautorent@gmail.com</a></span>
                 </div>
                 <div className="home-contacts__map">
-                <AddressMap />
+                    <AddressMap />
                 </div>
             </section>
         </MainLayout>

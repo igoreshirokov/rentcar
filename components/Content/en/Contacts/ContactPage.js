@@ -1,5 +1,8 @@
 import { MainLayout } from "../../../Layouts/MainLayout";
-import AddressMap from '../../../ui/AddressMap'
+import dynamic from 'next/dynamic'
+import { ComponentLoading } from '../../../ui/FetchLoading.js'
+
+const AddressMap = dynamic(() => import('../../../ui/AddressMap'), { loading: () => <ComponentLoading /> })
 
 export default function ContactPage ( ) {
     return (

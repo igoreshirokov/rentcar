@@ -39,7 +39,7 @@ export default function RenditingimusedPage() {
                         Car renters are required to notify <span className="red bold">RED</span> <span className="bold">Autorent</span> before driving to another country. Otherwise, the car renter will lose the security deposit.
                     </li>
                     <li>
-                        Car renters must notify RED Autorent of any accidents involving the rental vehicle.
+                        Car renters must notify <span className="red bold">RED</span> <span className="bold">Autorent</span> of any accidents involving the rental vehicle.
                     </li>
                     <li>
                     <span className="red bold">RED</span> <span className="bold">Autorent</span> will provide a replacement vehicle if your rental vehicle breaks down due to a mechanical failure and is not drivable.

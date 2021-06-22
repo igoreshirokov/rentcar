@@ -35,7 +35,7 @@ export default function RenditingimusedPage () {
                     </li>
 
                     <li>
-                        <span className="red bold">RED</span> <span className="bold">Autorenti</span> rendiautodes on suitsetamine <span className="bold">KEELATUD!</span> Kui auto tagastatakse suitsulõhnalise salongiga, peetakse tagatisrahast kinni <span className="red bold">150 eurot</span> salongi keemiliseks puhastuseks.
+                        <span className="red bold">RED</span> <span className="bold">Autorenti</span> rendiautodes on suitsetamine <span className="red bold">KEELATUD!</span> Kui auto tagastatakse suitsulõhnalise salongiga, peetakse tagatisrahast kinni <span className="red bold">150 eurot</span> salongi keemiliseks puhastuseks.
                     </li>
 
                     <li>

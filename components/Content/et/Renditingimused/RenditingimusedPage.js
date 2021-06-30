@@ -6,7 +6,6 @@ export default function RenditingimusedPage () {
             <section className="autod-breadcrumbs">
                 <div className="breadcrumbs">
                     <p>
-                        <span className="breadcrumb-parent">Peamine/</span>
                         <span className="breadcrumb-current">Renditingimused</span>
                     </p>
                 </div>

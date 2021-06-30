@@ -64,7 +64,6 @@ export default function AutorentPage() {
             {loading && <FetchLoading />}
             <section className="autorendi">
                 <div className="breadcrumbs">
-                    <span className="breadcrumb-parent"><Link href="/"><a>Peamine/</a></Link></span>
                     <span className="breadcrumb-parent"><Link href="/autod"><a>Autod/</a></Link></span>
                     <span className="breadcrumb-current">Autorendi päringu vorm</span>
 

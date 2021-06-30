@@ -64,7 +64,6 @@ export default function AutorentPage() {
             {loading && <FetchLoading />}
             <section className="autorendi">
                 <div className="breadcrumbs">
-                    <span className="breadcrumb-parent"><Link href="/"><a>Главная/</a></Link></span>
                     <span className="breadcrumb-parent"><Link href="/autod"><a>Автомобили/</a></Link></span>
                     <span className="breadcrumb-current">Форма запроса</span>
                 </div>

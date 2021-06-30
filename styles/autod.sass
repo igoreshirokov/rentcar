@@ -1,136 +1,235 @@
-.autod-head
+.auto-head__title
     max-width: 590px
 .autod-cars
-    margin-top: 3em
     display: flex
     flex-direction: row
     flex-wrap: wrap
     gap: 10px
 .car__card
-    width: calc(50% - 10px)
-    max-width: 590px
-    padding: 15px
+    max-width: calc(50% - 10px)
+    padding: 10px
     box-shadow: 0 0 20px 0 $cardShadow
+    display: grid
+    grid-template-rows: 1fr 
     button
-        margin-top: 10px
-        margin-left: 0
-.car__card-parameters
-    display: flex
-    flex-direction: row
-    align-items: center
-    justify-content: space-between
-.parameters
-    padding: 0
-    margin: 0 15px
-    width: 100%
-    li
-        list-style-type: none
-        display: flex
-        flex-direction: row
-        justify-content: space-between
-        padding: 0
-        margin: 0
-        line-height: 0.5
-        max-width: 576px
-.rent-parameters
-    margin-top: 15px
-@media screen and ( max-width: 992px )
-    .car__card
-        width: 100%
-        button
-            width: 100%
-@media screen and (min-width: 992px)
-    .car-parameters
-        .parametr-name
-            display: none
-
-@media screen and (max-width: 576px)
-    .car-slider__thumbs
-        display: none
-    .car__card-parameters
-        flex-direction: column
-
-// Car Slider 
-.slider
-    display: flex
-    flex-direction: column-reverse
-
+        margin: 10px 0 0 0
 .car-slider
-    position: relative
-    cursor: pointer
-    // img
-        // width: 50%
-        // object-fit: cover
-        // height: auto
-    
-.car-slider__thumbs
-    position: absolute
-    top: 0
-    right: 0
+    box-sizing: content-box
+    display: grid
+    grid-template-columns: 2fr 1fr
+    .slider
+        max-width: 100%
+        .car-slide
+            // min-width: 300px
+            img
+                max-width: 100%
+    .car-slider__thumbs
+        box-sizing: content-box
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: max-content
+        max-width: 100%
+        .car-slider__thumb
+            img
+                max-width: 100%
+.car__card-parameters
     display: grid
     grid-template-columns: 1fr 1fr
-    grid-template-rows: 1fr 1fr
-    grid-template-areas: ".."".."
-    background: $white
-    z-index: 1
-    max-width: 50%
-    .car-slider__thumb
-        img
-            width: 100%
-.swiper-pagination
-    position: relative
-    margin-top: 10px
+    gap: 10px
+    .parameters
+        padding: 0
+        li
+            list-style-type: none
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            padding: 0
+            margin: 0
+            line-height: 0.5
+            max-width: 576px
+.rent-parameters
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    button
+        align-self: flex-end
+        justify-self: flex-end
+
+@media screen and (max-width: 992px)
+    .autod-cars
+        flex-direction: column
+        justify-content: center
+        align-items: center
+    .car__card
+        max-width: 575px
+        min-width: 575px
+@media screen and (max-width: 575px)
+    .car__card
+        max-width: 100%
+        min-width: 100%
+        grid: none
+    .car-slider
+        grid-template-columns: 1fr
+    .car__card-parameters
+        grid-template-columns: 1fr
     .swiper-pagination-bullet
         background-color: $darkGrey
         opacity: 1
     .swiper-pagination-bullet-active
         background-color: $red
-    @media screen and ( min-width: 576px )
-        display: none
-
-.car-slide
-    @media screen and ( max-width: 576px )
-        margin: 10px
-        box-shadow: 0 0 20px 0 $cardShadow
-        img
+    .rent-parameters
+        button
             width: 100%
 
+// .autod-head
+//     max-width: 590px
+// .autod-cars
+//     margin-top: 3em
+//     display: flex
+//     flex-direction: row
+//     flex-wrap: wrap
+//     gap: 10px
+// .car__card
+//     width: calc(50% - 10px)
+//     max-width: 590px
+//     padding: 15px
+//     box-shadow: 0 0 20px 0 $cardShadow
+//     button
+//         margin-top: 10px
+//         margin-left: 0
+// .car__card-parameters
+//     display: flex
+//     flex-direction: row
+//     align-items: center
+//     justify-content: space-between
+// .parameters
+//     padding: 0
+//     margin: 0 15px
+//     width: 100%
+//     li
+//         list-style-type: none
+//         display: flex
+//         flex-direction: row
+//         justify-content: space-between
+//         padding: 0
+//         margin: 0
+//         line-height: 0.5
+//         max-width: 576px
+// .rent-parameters
+//     margin-top: 15px
+// @media screen and ( max-width: 992px )
+//     .car__card
+//         width: 100%
+//         button
+//             width: 100%
+// @media screen and (min-width: 992px)
+//     .car-parameters
+//         .parametr-name
+//             display: none
 
+// @media screen and (max-width: 576px)
+//     .car-slider__thumbs
+//         display: none
+//     .car__card-parameters
+//         flex-direction: column
 
-.slider
-    width: 50%
-    margin: 0
-.car-slide
-    width: 100%
-    height: 230px
-    img 
-        min-width: 100%
-        min-height: 100%
-        max-width: 100%
-        max-height: 100%
+// // Car Slider 
+// .slider
+//     display: flex
+//     flex-direction: column-reverse
 
-.car-slider__thumbs
-    height: 100%
-    width: 50%
-.car-slider__thumb
-    width: 100%
-    height: 110px
-    position: relative
-    img
-        width: 100%
-        height: 100%
+// .car-slider
+//     position: relative
+//     cursor: pointer
+//     // img
+//         // width: 50%
+//         // object-fit: cover
+//         // height: auto
 
-@media screen and ( max-width: 1200px )
-    .car-slide
-        height: 220px
-    .car-slider__thumb
-        height: 110px
-@media screen and ( max-width: 578px )
-    .slider
-        width: 100%
-    .car-slide
-        width: calc(100% - 30px)
-        height: calc(100vw * 0.60)
-        max-height: 433px
-    .car-slider__thumb
-        display: none
+// .car-slider__thumbs
+//     position: absolute
+//     top: 0
+//     right: 0
+//     display: grid
+//     grid-template-columns: 1fr 1fr
+//     grid-template-rows: 1fr 1fr
+//     grid-template-areas: ".."".."
+//     background: $white
+//     z-index: 1
+//     max-width: 50%
+//     .car-slider__thumb
+//         img
+//             width: 100%
+// .swiper-pagination
+//     position: relative
+//     margin-top: 10px
+//     .swiper-pagination-bullet
+//         background-color: $darkGrey
+//         opacity: 1
+//     .swiper-pagination-bullet-active
+//         background-color: $red
+//     @media screen and ( min-width: 576px )
+//         display: none
+
+// .car-slide
+//     @media screen and ( max-width: 576px )
+//         margin: 10px
+//         box-shadow: 0 0 20px 0 $cardShadow
+//         img
+//             width: 100%
+
+// .car-slider
+//     position: relative
+// .slider
+//     width: 50%
+//     position: absolute
+//     left: 0
+//     top: 0
+
+// .car-slide
+//     img
+//         max-width: 100%
+
+// .car__card
+//     display: grid
+//     grid-columns: 1fr 1fr
+//     grid-rows: 1fr 1fr
+//     gap: 0px 0px
+
+// // .slider
+// //     width: 50%
+// //     margin: 0
+// // .car-slide
+// //     width: 100%
+// //     height: 230px
+// //     img 
+// //         min-width: 100%
+// //         min-height: 100%
+// //         max-width: 100%
+// //         max-height: 100%
+
+// // .car-slider__thumbs
+// //     height: 100%
+// //     width: 50%
+// // .car-slider__thumb
+// //     width: 100%
+// //     height: 110px
+// //     position: relative
+// //     img
+// //         width: 100%
+// //         height: 100%
+
+// // @media screen and ( max-width: 1200px )
+// //     .car-slide
+// //         height: 220px
+// //     .car-slider__thumb
+// //         height: 110px
+// // @media screen and ( max-width: 578px )
+// //     .slider
+// //         width: 100%
+// //     .car-slide
+// //         width: calc(100% - 30px)
+// //         height: calc(100vw * 0.60)
+// //         max-height: 433px
+// //     .car-slider__thumb
+// //         display: none

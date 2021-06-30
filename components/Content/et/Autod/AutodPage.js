@@ -15,14 +15,15 @@ export default function AutodPage() {
             <section className="autod-breadcrumbs">
                 <div className="breadcrumbs">
                     <p>
-                        <span className="breadcrumb-parent"><Link href="/"><a>Peamine/</a></Link></span>
                         <span className="breadcrumb-current">Autod</span>
                     </p>
                 </div>
             </section>
             <section className="autod-head">
-                <h2>Autod</h2>
-                <p><span className="red bold">RED</span> <span className="bold">Autorenti</span>  pakub autosid Tallinna madalaimate hindadega, hinnad algavad <span className="red bold">6.66 eurost ööpäevas või 200 eurost kuus.</span></p>
+                <div className="auto-head__title">
+                    <h2>Autod</h2>
+                    <p><span className="red bold">RED</span> <span className="bold">Autorenti</span>  pakub autosid Tallinna madalaimate hindadega, hinnad algavad <span className="red bold">6.66 eurost ööpäevas või 200 eurost kuus.</span></p>
+                </div>
             </section>
             <section className="autod-cars">
 

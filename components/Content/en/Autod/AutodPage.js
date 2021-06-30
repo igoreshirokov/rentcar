@@ -15,14 +15,15 @@ export default function AutodPage() {
             <section className="autod-breadcrumbs">
                 <div className="breadcrumbs">
                     <p>
-                        <span className="breadcrumb-parent"><Link href="/"><a>Home/</a></Link></span>
                         <span className="breadcrumb-current">Vehicles</span>
                     </p>
                 </div>
             </section>
             <section className="autod-head">
+            <div className="auto-head__title">
                 <h2>Vehicles</h2>
                 <p><span className="red bold">RED</span> <span className="bold">Autorent</span> offers some of the most competitive rates in Tallinn, with our prices starting at  <span className="red bold">€6.66 per day or €200 per month.</span></p>
+            </div>
             </section>
             <section className="autod-cars">
 

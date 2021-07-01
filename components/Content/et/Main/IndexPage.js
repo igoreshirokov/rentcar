@@ -9,7 +9,6 @@ export default function IndexPage() {
     return (
 
         <MainLayout title="Säästu Autorent Tallinnas">
-
             <section className="home-main">
                 <h1>Säästu <span className="red">Autorent</span> Tallinnas</h1>
                 <p className="subtitle"><span className="uppercase red">RED</span> Autorent on soodsate hindadega ökonoomsete autode rent Tallinnas alates <span className="red bold">6.66 eurot/ööpäev</span></p>

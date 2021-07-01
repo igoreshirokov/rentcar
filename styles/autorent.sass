@@ -1,72 +1,147 @@
-.autorendi-form
-    width: 50%
-
-.form-person, .form-date
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
-
-.form-auto
-    label
-        width: calc(100% - 10px)
-
-.form-comment
-    label
-        width: calc(100% - 10px)
-        height: 100px
-        textarea
-            height: 100%
-
 .autorendi-broner
     display: flex
-    flex-direction: row
-    .autorendi-carcard
-        width: 50%
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        padding: 20px 15px
-        .button
-            margin-top: 30px
-            @media screen and (max-width: 576px)
-                margin-top: 50px
-                margin-bottom: 100px
-                width: 100%
-        .car__card
+    gap: 10px
+.autorendi-form
+    display: flex
+    flex-direction: column
+    gap: 10px
+    width: 50%
+.form-person, .form-date
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 10px
+    label
+        width: 100%
+        input
             width: 100%
-            max-width: 380px
-            img
-                width: 100%
-            .car__card-parameters
-                width: 100%
-    @media screen and (max-width: 576px)
-        flex-direction: column
-        .autorendi-carcard
-            width: 100%
-            .car__card
-                width: 100%
-                .car__card-parameters
-                    width: 100%
-        .autorendi-form
-            width: 100%
-            label
-                width: 100%
-    .car__card
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        width: 300px
-        button
-            width: 100%
-    .car__card-parameters
-        flex-direction: column
-        .car-parameters
-            .parametr-name
-                display: inline
-.auto-select
-    width: 100%
-
 .additional-information
-    width: 100%
+    grid-area: 3 / 1 / 4 / 3
+.auto-select
+    grid-area: 4 / 1 / 5 / 3
+    option
+        padding: 10px 15px!important
+
+.autorendi-carcard
+    width: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    .car__card
+        max-width: 380px
+        min-width: 300px!important
+        img
+            max-width: 100%
+        .car__card-parameters
+            display: flex
+            flex-direction: column
+    .button
+        margin: 20px 0
+
+@media screen and (max-width: 992px)
+    .autorendi-carcard
+        .car__card
+            margin: 20px
+        width: calc(50% - 20px)
+    .autorendi-form
+        width: calc(50% - 20px)
+    .form-person
+        display: flex
+        flex-direction: column
+
+@media screen and (max-width: 768px)
+    .autorendi-broner
+        flex-direction: column
+    .autorendi-carcard
+        width: 100%
+    .autorendi-form
+        width: 100%
+
+
+// .autorendi-form
+//     width: 50%
+
+// .form-person, .form-date
+//     display: flex
+//     flex-direction: row
+//     flex-wrap: wrap
+
+// .form-auto
+//     label
+//         width: calc(100% - 10px)
+
+// .form-comment
+//     label
+//         width: calc(100% - 10px)
+//         height: 100px
+//         textarea
+//             height: 100%
+
+// .autorendi-broner
+//     display: flex
+//     flex-direction: row
+//     .autorendi-carcard
+//         width: 50%
+//         display: flex
+//         flex-direction: column
+//         justify-content: center
+//         align-items: center
+//         padding: 20px 15px
+//         .button
+//             margin-top: 30px
+//             @media screen and (max-width: 576px)
+//                 margin-top: 50px
+//                 margin-bottom: 100px
+//                 width: 100%
+//         .car__card
+//             width: 100%
+//             max-width: 380px!important
+//             img
+//                 width: 100%
+//             .car__card-parameters
+//                 grid: none
+//                 width: 100%
+
+//     @media screen and (max-width: 576px)
+//         flex-direction: column
+//         .autorendi-carcard
+//             width: 100%
+//             .car__card
+//                 width: 100%
+//                 .car__card-parameters
+//                     width: 100%
+//         .autorendi-form
+//             width: 100%
+//             label
+//                 width: 100%
+//     .car__card
+//         display: flex
+//         flex-direction: column
+//         justify-content: center
+//         align-items: center
+//         width: 300px
+//         button
+//             width: 100%
+//     .car__card-parameters
+//         flex-direction: column
+//         .car-parameters
+//             .parametr-name
+//                 display: inline
+// .auto-select
+//     width: 100%
+
+// .additional-information
+//     width: 100%
+
+// @media screen and (max-width: 992px)
+//     .autorendi-form
+//         label
+//             width: 100%
+//     .autorendi-carcard
+//         .car__card
+//             min-width: 100%!important
+//             display: flex!important
+//             flex-direction: column
+//             justify-content: center
+//             align-items: center
+//             grid: none!important

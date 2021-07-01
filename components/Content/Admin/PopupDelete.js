@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router'
 import { BASE_URL } from '../../Constants'
+import { useEffect } from "react"
+
 export const PopupDelete = ({ car, close }) => {
     const router = useRouter()
 
@@ -13,6 +15,13 @@ export const PopupDelete = ({ car, close }) => {
         
         return 'ok'
     }
+
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.add('overflow-hidden')
+
+        return () => body.classList.remove('overflow-hidden')
+    })
 
     function deleteCarHundler() {
         deleteCar()

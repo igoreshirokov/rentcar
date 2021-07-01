@@ -1,18 +1,14 @@
 import { PrismaClient } from "@prisma/client"
 import { getSession } from 'next-auth/client'
-import fs from 'fs'
-import path from 'path'
-import base64Img from 'base64-img'
 import { redirect } from "next/dist/next-server/server/api-utils"
+import { BASE_URL } from "../../../components/Constants"
 
 const prisma = new PrismaClient()
 
 export default async (req, res) => {
-
-    const session = getSession(req)
+    const session = await getSession({req})
     if (session) {
         const { method, body } = req
-
         if (method == 'DELETE') {
             const data = JSON.parse(body);
 
@@ -21,7 +17,7 @@ export default async (req, res) => {
                     id: data.id
                 }
             });
-
+            fetch(BASE_URL + 'api/car/excessimages')
             res.status(200).json(deleteCar)
         }
     } else {

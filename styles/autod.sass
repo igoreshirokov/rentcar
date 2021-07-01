@@ -1,5 +1,6 @@
 .auto-head__title
     max-width: 590px
+    margin-top: 2em
 .autod-cars
     display: flex
     flex-direction: row
@@ -10,7 +11,7 @@
     padding: 10px
     box-shadow: 0 0 20px 0 $cardShadow
     display: grid
-    grid-template-rows: 1fr 
+    grid-template-rows: 1fr
     button
         margin: 10px 0 0 0
 .car-slider
@@ -54,6 +55,9 @@
     button
         align-self: flex-end
         justify-self: flex-end
+.swiper-pagination-bullet
+    background-color: $darkGrey
+    opacity: 1
 
 @media screen and (max-width: 992px)
     .autod-cars
@@ -72,9 +76,6 @@
         grid-template-columns: 1fr
     .car__card-parameters
         grid-template-columns: 1fr
-    .swiper-pagination-bullet
-        background-color: $darkGrey
-        opacity: 1
     .swiper-pagination-bullet-active
         background-color: $red
     .rent-parameters

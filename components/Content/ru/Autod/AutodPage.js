@@ -12,13 +12,6 @@ export default function AutodPage() {
 
     return (
         <MainLayout title="Автомобили">
-            <section className="autod-breadcrumbs">
-                <div className="breadcrumbs">
-                    <p>
-                        <span className="breadcrumb-current">Автомобили</span>
-                    </p>
-                </div>
-            </section>
             <section className="autod-head">
             <div className="auto-head__title">
                 <h2>Автомобили</h2>

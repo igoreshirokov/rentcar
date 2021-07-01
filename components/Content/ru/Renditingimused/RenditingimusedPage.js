@@ -3,13 +3,6 @@ import { MainLayout } from '../../../Layouts/MainLayout'
 export default function RenditingimusedPage() {
     return (
         <MainLayout title={'Условия аренды'}>
-            <section className="autod-breadcrumbs">
-                <div className="breadcrumbs">
-                    <p>
-                        <span className="breadcrumb-current">Условия аренды</span>
-                    </p>
-                </div>
-            </section>
             <section className="renditingimused-head">
                 <h2>Условия аренды</h2>
                 <p>Пожалуйста, внимательно ознакомьтесь с условиями аренды перед бронированием автомобиля.</p>

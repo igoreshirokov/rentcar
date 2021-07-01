@@ -1,6 +1,12 @@
+import { useEffect } from "react"
 
 export const PopupBroner = ({close}) => {
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.add('overflow-hidden')
 
+        return () => body.classList.remove('overflow-hidden')
+    })
     return (
         <div id="wrapper" onClick={(e) => e.target.id === 'wrapper' && close()} className="popup-wrapper">
             <div className="popup-content">

@@ -29,6 +29,13 @@ export const PopupSettings = ({ typeSubmit, close, car }) => {
         Images: car['Images'],
     })
 
+    useEffect(() => {
+        const body = document.querySelector('body')
+        body.classList.add('overflow-hidden')
+
+        return () => body.classList.remove('overflow-hidden')
+    })
+    
     function deleteImage(index) {
         setSettings(prevState => {
             let state = prevState

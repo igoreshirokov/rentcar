@@ -3,6 +3,7 @@ import { getSession } from 'next-auth/client'
 import fs from 'fs'
 import path from 'path'
 import base64Img from 'base64-img'
+import { BASE_URL } from "../../../components/Constants"
 
 const prisma = new PrismaClient()
 
@@ -66,6 +67,7 @@ export default async (req, res) => {
                 data: dataUpdate
             })
 
+            fetch(BASE_URL + 'api/car/excessimages')
             res.status(200).json(updateCar)
         }
     } else {

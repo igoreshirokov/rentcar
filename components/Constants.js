@@ -10,4 +10,4 @@ export const LINKS = {
     facebook: 'https://www.facebook.com/www.redautorent.ee',
     instagram: 'https://www.instagram.com/redautorent/'
 }
-export const EMAIL = 'qusty@yandex.ru'
+export const EMAIL = 'redautorentestonia@gmail.com'

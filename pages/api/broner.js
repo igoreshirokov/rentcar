@@ -1,3 +1,4 @@
+const { EMAIL } = require('../../components/Constants')
 const fs = require('fs')
 const nodemailer = require('nodemailer')
 
@@ -23,7 +24,7 @@ async function main(mail) {
 
   let info = await transporter.sendMail({
     from: 'redautorentestonia@gmail.com', 
-    to: "redautorentestonia@gmail.com", 
+    to: EMAIL, 
     subject: "RED Autorent | " + mail.subject, 
     text: mail.text, 
     html: mail.html, 

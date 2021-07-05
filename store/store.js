@@ -24,7 +24,7 @@ export const StoreContextProvider = ({ children }) => {
     }
     const [state, dispatch] = React.useReducer(reducer, defaultContext)
     const setLang = (lang) => {
-        setCookie('lang', lang, { path: '/'});
+        setCookie('lang', lang, { path: '/', secure: true, sameSite: 'Lax'});
         dispatch({type: 'CHANGE_LANG', payload: lang});
     }
     const setCatalog = (cars) => dispatch({ type: 'SET_CATALOG', payload: cars}) 

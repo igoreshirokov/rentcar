@@ -14,9 +14,11 @@ export default function Calendar({ lang, type }) {
     const [startDate, setDate] = useState('');
     const formContext = useContext(FormContext)
     const { setForm } = formContext
- 
+
     useEffect(() => {
+
         setForm(type, calendarRef.current.input.value)
+
     }, [startDate])
     return (
 

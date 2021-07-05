@@ -26,33 +26,30 @@ export const AutoSelect = () => {
     }, [])
 
 
-function hundlerChange(e) {
+    function hundlerChange(e) {
 
-    const options = e.target.childNodes
+        const options = e.target.childNodes
 
-    for (let i = 0; i < options.length; i++) {
-        if (options[i].selected) {
-            ctxForm.setForm('SET_AUTO', options[i].value)
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                ctxForm.setForm('SET_AUTO', options[i].value)
+            }
         }
+
     }
 
-}
 
-
-return (
-    <>
-        {!catalog ? <p>Loading...</p> : (
-            <select onChange={hundlerChange}>
-                {catalog.map(auto => {
-                    if (ctxForm.state.auto == auto.model) {
-                        return <option key={auto.model} data-id={auto.id} value={auto.model} selected>{auto.model}</option>
-                    }
-                    return (
-                        <option key={auto.model} data-id={auto.id} value={auto.model} >{auto.model}</option>
-                    )
-                })}
-            </select>
-        )}
-    </>
-)
+    return (
+        <>
+            {!catalog ? <p>Loading...</p> : (
+                <select defaultValue={ctxForm.state.auto} onChange={hundlerChange}>
+                    {catalog.map(auto => {
+                        return (
+                            <option key={auto.model} data-id={auto.id} value={auto.model} >{auto.model}</option>
+                        )
+                    })}
+                </select>
+            )}
+        </>
+    )
 }

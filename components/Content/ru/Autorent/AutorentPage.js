@@ -75,22 +75,22 @@ export default function AutorentPage() {
                     <span className="bold">Контактная информация</span>
                     <div className="form-person">
                         <label>Имя:
-                         <input type="text" name="name" onChange={(e) => formContext.setForm('SET_NAME', e.target.value)} value={formContext.name} placeholder="Alex" required></input>
+                         <input type="text" name="name" onChange={(e) => formContext.setForm('SET_NAME', e.target.value)} defaultValue={formContext.name} placeholder="Alex" required></input>
                         </label>
                         <label>Фамилия:
-                         <input type="text" name="surname" placeholder="Petrov" onChange={(e) => formContext.setForm('SET_SURNAME', e.target.value)} value={formContext.surname}></input>
+                         <input type="text" name="surname" placeholder="Petrov" onChange={(e) => formContext.setForm('SET_SURNAME', e.target.value)} defaultValue={formContext.surname}></input>
                         </label>
                         <label>E-mail адрес:
-                         <input type="text" name="email" placeholder="petrov@gmail.com" onChange={(e) => formContext.setForm('SET_EMAIL', e.target.value)} value={formContext.email}></input>
+                         <input type="text" name="email" placeholder="petrov@gmail.com" onChange={(e) => formContext.setForm('SET_EMAIL', e.target.value)} defaultValue={formContext.email}></input>
                         </label>
                         <label>Домашний адрес:
-                         <input type="text" name="address" placeholder="Vilnus, Krony 44" onChange={(e) => formContext.setForm('SET_ADDRESS', e.target.value)} value={formContext.address}></input>
+                         <input type="text" name="address" placeholder="Vilnus, Krony 44" onChange={(e) => formContext.setForm('SET_ADDRESS', e.target.value)} defaultValue={formContext.address}></input>
                         </label>
                         <label>Номер телефона:
-                         <input type="text" name="phone" placeholder="+ XXX-XX-XXX-XX-XX" onChange={(e) => formContext.setForm('SET_PHONE', e.target.value)} value={formContext.phone} required></input>
+                         <input type="text" name="phone" placeholder="+ XXX-XX-XXX-XX-XX" onChange={(e) => formContext.setForm('SET_PHONE', e.target.value)} defaultValue={formContext.phone} required></input>
                         </label>
                         <label>Личный код:
-                         <input type="text" name="zip" placeholder="ХХХ" onChange={(e) => formContext.setForm('SET_PERSONALID', e.target.value)} value={formContext.personalid}></input>
+                         <input type="text" name="zip" placeholder="ХХХ" onChange={(e) => formContext.setForm('SET_PERSONALID', e.target.value)} defaultValue={formContext.personalid}></input>
                         </label>
                         <label className="auto-select">Автомобиль:
                             <AutoSelect type={'SET_AUTO'} />
@@ -111,7 +111,7 @@ export default function AutorentPage() {
                             <Time type={'SET_STOPTIME'} />
                         </label>
                         <label className="additional-information">Дополнительная информация:
-                            <textarea name="additional" placeholder="Дополнительная информация" onChange={(e) => formContext.setForm('SET_ADDITIONAL', e.target.value)} value={formContext.additional}></textarea>
+                            <textarea name="additional" placeholder="Дополнительная информация" onChange={(e) => formContext.setForm('SET_ADDITIONAL', e.target.value)} defaultValue={formContext.additional}></textarea>
                         </label>
                     </div>
                 </form>

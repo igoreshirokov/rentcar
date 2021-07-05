@@ -9,7 +9,7 @@ import { signIn, signout, signOut, useSession } from "next-auth/client"
 import { PopupSettings } from '../components/Content/Admin/PopupSettings'
 import { FetchLoading } from '../components/ui/FetchLoading'
 
-export default function Admin({ data }) {
+export default function Admin() {
     const [cars, setCars] = useState(false)
     const [session, loading] = useSession()
     const [settingsOn, setSettingsOn] = useState(false)
@@ -22,34 +22,19 @@ export default function Admin({ data }) {
     useEffect(async () => {
         try {
             const res = await fetch(BASE_URL + "api/catalog")
-            // const res = await fetch(process.env.BASE_URL + "/api/catalog")
             const json = await res.json()
             setCars(json)
-            // return { data: { cars: json, status: 200 } }
         } catch (e) {
             console.log(e)
-            // return { data: { cars: null, status: 403 } }
         }
-    }, [data])
-    if (data.status === 403) {
-
-    }
-
-    useEffect(() => {
-        // console.log(data)
-        if (data.status === 200) {
-            setCars(data.cars)
-        }
-    }, [data])
+    }, [])
 
     if (loading) {
         return <FetchLoading />
     }
 
     function toLoginPage() {
-        // setTimeout(() => {
         router.push('/admin/login')
-        // }, 2000)
     }
 
     if (!session) {
@@ -113,14 +98,3 @@ export default function Admin({ data }) {
     )
 }
 
-
-Admin.getInitialProps = async (ctx) => {
-    try {
-        const res = await fetch(process.env.BASE_URL + "api/catalog")
-        // const res = await fetch(process.env.BASE_URL + "/api/catalog")
-        const json = await res.json()
-        return { data: { cars: json, status: 200 } }
-    } catch (e) {
-        return { data: { cars: null, status: 403 } }
-    }
-}

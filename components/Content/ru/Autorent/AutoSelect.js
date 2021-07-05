@@ -42,6 +42,15 @@ function hundlerChange(e) {
 return (
     <>
         {!catalog ? <p>Загрузка...</p> : (
+            <select defaultValue={ctxForm.state.auto} onChange={hundlerChange}>
+                {catalog.map(auto => {
+                    return (
+                        <option key={auto.model} data-id={auto.id} value={auto.model} >{auto.model}</option>
+                    )
+                })}
+            </select>
+        )}
+        {/* {!catalog ? <p>Загрузка...</p> : (
             <select onChange={hundlerChange}>
                 {catalog.map(auto => {
                     if (ctxForm.state.auto == auto.model) {
@@ -52,7 +61,7 @@ return (
                     )
                 })}
             </select>
-        )}
+        )} */}
     </>
 )
 }

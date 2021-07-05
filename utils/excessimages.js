@@ -14,6 +14,8 @@ async function getImageUrlsFromDatabase() {
             Images: true
         }
     })
+    prisma.$disconnect()
+    
     images = await images.map((img, index) => JSON.parse(img.Images.replaceAll('/upload/', ''))).flat()
     return images
 }
@@ -36,23 +38,23 @@ function removeFiles(files) {
 
 }
 export default async function (req, res) {
-    const session = await getSession({ req })
-    if (session) {
-        // Получает все ссылки на изображения в базе
-        const urls = await getImageUrlsFromDatabase();
-        // Получает все файлы в папке upload
-        const files = await getFiles()
-        // Находит файлы которых нет в базе
-        let removed = files.filter(file => {
-            return !urls.includes(file)
-        })
-        // Удаляет невостребованные файлы
-        removed.length > 0 ? removeFiles(removed) : removed = 'нет невостребованных файлов'
-        // res.json({urls,files,removed})
-        fs.appendFileSync(path.join(process.cwd(), 'logs', 'deleted_images.log'),"[" + format(Date.now(), 'dd/MM/yyyy - k:m:s') + "] --- " + removed + "\n")
+    // const session = await getSession({ req })
+    // if (session) {
+    // Получает все ссылки на изображения в базе
+    const urls = await getImageUrlsFromDatabase();
+    // Получает все файлы в папке upload
+    const files = await getFiles()
+    // Находит файлы которых нет в базе
+    let removed = files.filter(file => {
+        return !urls.includes(file)
+    })
+    // Удаляет невостребованные файлы
+    removed.length > 0 ? removeFiles(removed) : removed = 'нет невостребованных файлов'
+    // res.json({urls,files,removed})
+    fs.appendFileSync(path.join(process.cwd(), 'logs', 'deleted_images.log'), "[" + format(Date.now(), 'dd/MM/yyyy - k:m:s') + "] --- " + removed + "\n")
 
-        res.status(200).json(removed)
-    } else {
-        redirect('/admin/login')
-    }
+    return removed
+    // } else {
+    // redirect('/admin/login')
+    // }
 }

@@ -4,6 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import base64Img from 'base64-img'
 import { BASE_URL } from "../../../components/Constants"
+import excessimages from "../../../utils/excessimages"
 
 const prisma = new PrismaClient()
 
@@ -66,9 +67,9 @@ export default async (req, res) => {
                 },
                 data: dataUpdate
             })
-
-            fetch(BASE_URL + 'api/car/excessimages')
-            res.status(200).json(updateCar)
+            const deleteExcessImages = await excessimages()
+            
+            res.status(200).json({ updateCar, deleteExcessImages })
         }
     } else {
         redirect('/admin/login')

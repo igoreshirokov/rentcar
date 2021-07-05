@@ -1,15 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 .gitignore
-server.js
-/prisma/prisma/dev.db
-
-/components/Constants.js
+# /prisma/prisma/dev.db
+# /components/Constants.js
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 # pm2 settings file
-ecosystem.congfig.js
+# ecosystem.congfig.js
 # testing
 /coverage
 # next.js

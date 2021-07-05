@@ -37,7 +37,7 @@ export const CarCard = ({ car }) => {
                     </li>
                     <li>
                         <span className="parametr-name">Doors</span>
-                        <span className="bold parametr-value">{car['Doors']} doors</span>
+                        <span className="bold parametr-value">{car['Doors']}</span>
                     </li>
                     <li>
                         <span className="parametr-name">Fuel consumption</span>

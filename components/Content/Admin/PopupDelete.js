@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router'
 import { BASE_URL } from '../../Constants'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { ComponentLoading } from '../../ui/FetchLoading'
 
 export const PopupDelete = ({ car, close }) => {
     const router = useRouter()
+    const [deleteButtonIsActive, setDeleteButtonIsActive] = useState(true)
 
     async function deleteCar() {
         const carId = { id: car['id'] }
@@ -12,7 +14,7 @@ export const PopupDelete = ({ car, close }) => {
             body: JSON.stringify(carId)
         });
         const res = await req.json()
-        
+        console.log(res)
         return 'ok'
     }
 
@@ -21,14 +23,15 @@ export const PopupDelete = ({ car, close }) => {
         body.classList.add('overflow-hidden')
 
         return () => body.classList.remove('overflow-hidden')
-    })
+    }, [])
 
     function deleteCarHundler() {
+        setDeleteButtonIsActive(false)
         deleteCar()
-        .then(res => {
-            router.push('/admin')
-            return close()
-        })
+            .then(res => {
+                router.reload()
+                return close()
+            })
     }
 
     return (
@@ -38,10 +41,7 @@ export const PopupDelete = ({ car, close }) => {
                 <div className="popup-content__message-title">
                     Delete
                 </div>
-                <div className="popup-content__message-message">
-                    <p>Delete <span className="red">{car['model']}?</span></p>
-                </div>
-                <button onClick={deleteCarHundler} className="button">Delete</button>
+                    {deleteButtonIsActive ? (<div className="popup-content__message-message"><p>Delete <span className="red">{car['model']}?</span></p><button onClick={deleteCarHundler} className="button">Delete</button></div>) : <ComponentLoading />}
             </div>
         </div>
     )
